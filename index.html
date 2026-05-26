@@ -361,15 +361,29 @@ function pillHtml(label, value, idx, field) {
 }
 
 function timeHtml(val, idx) {
-  const ed = editMode ? `contenteditable="true" oninput="DATA[${idx}].time=this.textContent"` : '';
+  const ed = editMode ? `contenteditable="true" oninput="DATA[${idx}].time=this.textContent;saveAll()"` : '';
   return `<span class="pill"><span class="pill-lbl">Zeit</span>&nbsp;<span ${ed}>${val}</span></span>`;
+}
+
+function saveAll() {
+  try { localStorage.setItem('kmu_data', JSON.stringify({DATA, CATS})); } catch(e) {}
+}
+
+function loadAll() {
+  try {
+    const saved = localStorage.getItem('kmu_data');
+    if (!saved) return;
+    const s = JSON.parse(saved);
+    if (s.DATA && Array.isArray(s.DATA)) { DATA.length=0; s.DATA.forEach(d=>DATA.push(d)); }
+    if (s.CATS && typeof s.CATS==='object') { Object.keys(CATS).forEach(k=>delete CATS[k]); Object.assign(CATS, s.CATS); }
+  } catch(e) {}
 }
 
 function cycleLevel(idx, field) {
   const cur = DATA[idx][field];
   const next = LEVELS[(LEVELS.indexOf(cur)+1)%3];
   DATA[idx][field] = next;
-  // Filter zurücksetzen damit das Item nach dem Wechsel nicht verschwindet
+  saveOverrides();
   if(field==='impact')   document.getElementById('fImpact').value='';
   if(field==='workload') document.getElementById('fWork').value='';
   render();
@@ -436,13 +450,13 @@ function tfHtml(item) {
     <div class="tf-split">
       <div class="tf-half prob" onclick="openPanel(${i},'problem')">
         <div><span class="tf-type">⚠ Problembeschreibung</span><span class="tf-hint">ⓘ</span></div>
-        <div class="tf-title" ${ed} ${stopProp} oninput="DATA[${i}].problem.title=this.textContent">${item.problem.title}</div>
-        <div class="tf-desc"  ${ed} ${stopProp} oninput="DATA[${i}].problem.detail=this.textContent">${item.problem.detail}</div>
+        <div class="tf-title" ${ed} ${stopProp} oninput="DATA[${i}].problem.title=this.textContent;saveAll()">${item.problem.title}</div>
+        <div class="tf-desc"  ${ed} ${stopProp} oninput="DATA[${i}].problem.detail=this.textContent;saveAll()">${item.problem.detail}</div>
       </div>
       <div class="tf-half sol" onclick="openPanel(${i},'solution')">
         <div><span class="tf-type">✓ Lösungsansätze</span><span class="tf-hint">ⓘ</span></div>
-        <div class="tf-title" ${ed} ${stopProp} oninput="DATA[${i}].solution.title=this.textContent">${item.solution.title}</div>
-        <div class="tf-desc"  ${ed} ${stopProp} oninput="DATA[${i}].solution.detail=this.textContent">${item.solution.detail}</div>
+        <div class="tf-title" ${ed} ${stopProp} oninput="DATA[${i}].solution.title=this.textContent;saveAll()">${item.solution.title}</div>
+        <div class="tf-desc"  ${ed} ${stopProp} oninput="DATA[${i}].solution.detail=this.textContent;saveAll()">${item.solution.detail}</div>
       </div>
     </div>
     <div class="tf-meta">
@@ -523,7 +537,7 @@ function toggleEdit() {
 }
 
 function delTF(idx) {
-  if(confirm('Themenfeld wirklich löschen?')) { DATA.splice(idx,1); render(); }
+  if(confirm('Themenfeld wirklich löschen?')) { DATA.splice(idx,1); saveAll(); render(); }
 }
 
 function addThemenfeld() {
@@ -537,6 +551,7 @@ function addThemenfeld() {
     solution: { title:'Neue Lösung',    detail:'Beschreibung eintragen.', bullets:['Schritt 1'] },
     impact:'Mittel', workload:'Mittel', time:'offen'
   });
+  saveAll();
   if(!editMode) toggleEdit(); else render();
 }
 
@@ -552,6 +567,7 @@ function addKategorie() {
     solution: { title:'Neue Lösung',    detail:'Beschreibung eintragen.', bullets:['Schritt 1'] },
     impact:'Mittel', workload:'Mittel', time:'offen'
   });
+  saveAll();
   if(!editMode) toggleEdit(); else render();
 }
 
@@ -730,6 +746,7 @@ function renderMatrix() {
     </div>`;
 }
 
+loadAll();
 render();
 </script>
 </body>
