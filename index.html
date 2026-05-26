@@ -732,6 +732,9 @@ function renderMatrix() {
     </div>`}).join('');
 
   document.getElementById('matrixView').innerHTML=`
+    <div style="padding:4px 2px 8px">
+      <h2 style="font-size:17px;font-weight:600;color:#1d1d1f;letter-spacing:-0.3px">Entscheidungsmatrix</h2>
+    </div>
     <div style="background:white;border:0.5px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden">
       <svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="display:block">
         <rect width="${W}" height="${H}" fill="white"/>
