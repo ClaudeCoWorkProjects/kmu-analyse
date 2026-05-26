@@ -7,96 +7,86 @@
 <style>
 :root { color-scheme: light; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f1f5f9; color: #1e293b; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f7; color: #1d1d1f; }
 
 header {
-  background: white; border-bottom: 0.5px solid #e2e8f0;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 0.5px solid rgba(0,0,0,0.1);
   padding: 11px 20px; display: flex; align-items: center; gap: 10px;
   flex-wrap: wrap; position: sticky; top: 0; z-index: 100;
 }
-.h-title h1 { font-size: 15px; font-weight: 500; }
-.h-title span { font-size: 10px; color: #94a3b8; display: block; margin-top: 1px; }
+.h-title h1 { font-size: 14px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.2px; }
+.h-title span { font-size: 10px; color: #86868b; display: block; margin-top: 1px; }
 .h-right { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-left: auto; }
 
 select, .btn {
-  padding: 5px 10px; border: 0.5px solid #e2e8f0; border-radius: 6px;
-  font-size: 11px; background: white; cursor: pointer; color: #1e293b;
+  padding: 5px 12px; border: 0.5px solid rgba(0,0,0,0.12); border-radius: 20px;
+  font-size: 11px; background: white; cursor: pointer; color: #1d1d1f;
   font-family: inherit; line-height: 1.4;
 }
-select:hover, .btn:hover { background: #f8fafc; border-color: #cbd5e1; }
-.btn.on { background: #eff6ff; color: #3b82f6; border-color: #93c5fd; }
-.btn.dark { background: #1e293b; color: white; border-color: #1e293b; }
-.btn.dark:hover { background: #334155; }
+select:hover, .btn:hover { background: #f5f5f7; }
+.btn.on { background: #1d1d1f; color: white; border-color: #1d1d1f; }
+.btn.dark { background: #1d1d1f; color: white; border-color: #1d1d1f; }
+.btn.dark:hover { background: #3a3a3c; }
 
-.vtoggle { display: flex; border: 0.5px solid #e2e8f0; border-radius: 6px; overflow: hidden; }
-.vtoggle .btn { border: none; border-radius: 0; color: #64748b; }
-.vtoggle .btn:first-child { border-right: 0.5px solid #e2e8f0; }
-.vtoggle .btn.on { background: #3b82f6; color: white; border-color: #3b82f6; }
+.vtoggle { display: flex; background: #e5e5ea; border-radius: 9px; padding: 2px; gap: 2px; border: none; }
+.vtoggle .btn { border: none; border-radius: 7px; color: #636366; background: transparent; padding: 4px 14px; }
+.vtoggle .btn.on { background: white; color: #1d1d1f; box-shadow: 0 1px 3px rgba(0,0,0,0.14); }
+.vtoggle .btn:hover:not(.on) { background: rgba(255,255,255,0.5); }
 
 .edit-hint { display: none; padding: 5px 20px; background: #eff6ff; border-bottom: 0.5px solid #bfdbfe; font-size: 11px; color: #3b82f6; }
 .edit-hint.show { display: block; }
 
-main { padding: 10px 20px 40px; max-width: 900px; margin: 0 auto; }
+main { padding: 12px 20px 40px; max-width: 900px; margin: 0 auto; }
 
 /* Category */
-.cat-group { margin-bottom: 18px; }
+.cat-group { margin-bottom: 12px; }
 .cat-head {
-  display: flex; align-items: center; gap: 7px; padding: 8px 12px;
-  background: white; border: 0.5px solid #e2e8f0; border-radius: 8px;
-  margin-bottom: 5px; cursor: pointer; user-select: none;
+  display: flex; align-items: center; gap: 8px; padding: 9px 14px;
+  background: white; border: 0.5px solid rgba(0,0,0,0.08); border-radius: 12px;
+  margin-bottom: 6px; cursor: pointer; user-select: none;
 }
-.cat-head:hover { background: #f8fafc; }
+.cat-head:hover { background: #f5f5f7; }
 .cat-icon { font-size: 13px; }
-.cat-name { font-size: 12px; font-weight: 500; flex: 1; }
-.cat-count { font-size: 10px; color: #94a3b8; background: #f1f5f9; padding: 1px 7px; border-radius: 20px; }
-.cat-arr { font-size: 10px; color: #cbd5e1; transition: transform 0.2s; }
+.cat-name { font-size: 12px; font-weight: 600; flex: 1; }
+.cat-count { font-size: 10px; color: #86868b; background: #f5f5f7; padding: 2px 8px; border-radius: 20px; }
+.cat-arr { font-size: 10px; color: #c7c7cc; transition: transform 0.2s; }
 .cat-arr.closed { transform: rotate(-90deg); }
-.cat-body { display: flex; flex-direction: column; gap: 4px; padding: 0 2px; }
+.cat-body { display: flex; flex-direction: column; gap: 6px; padding: 0 2px; }
 .cat-body.closed { display: none; }
 
-/* Themenfeld */
-.tf {
-  background: white; border: 0.5px solid #e2e8f0; border-radius: 8px;
-  overflow: hidden; transition: border-color 0.15s;
-}
-.tf:hover { border-color: #cbd5e1; }
+/* Split card (Variante A) */
+.tf { background: white; border: 0.5px solid rgba(0,0,0,0.08); border-radius: 14px; overflow: hidden; }
+.tf-split { display: grid; grid-template-columns: 1fr 1fr; }
+.tf-half { padding: 12px 14px; cursor: pointer; }
+.tf-half.prob { border-right: 0.5px solid rgba(0,0,0,0.06); }
+.tf-half.sol { background: #f6fff8; }
+.tf-half:hover { filter: brightness(0.98); }
 
-.tf-half {
-  padding: 9px 13px 9px 12px; cursor: pointer;
-  border-left: 3px solid transparent;
-  border-bottom: 0.5px solid #f1f5f9;
-}
-.tf-half:hover { background: #fafafa; }
-.tf-half.prob { border-left-color: #e24b4a; }
-.tf-half.sol  { border-left-color: #1D9E75; }
-
-.tf-type { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; padding: 2px 8px; border-radius: 20px; }
-.tf-half.prob .tf-type { background: #e24b4a; color: white; }
-.tf-half.sol  .tf-type { background: #1D9E75; color: white; }
-.tf-title { font-size: 12px; font-weight: 500; line-height: 1.3; margin-bottom: 2px; }
-.tf-desc  { font-size: 11px; color: #64748b; line-height: 1.4; }
+.tf-type { display: inline-flex; align-items: center; gap: 3px; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 5px; padding: 2px 8px; border-radius: 10px; }
+.tf-half.prob .tf-type { background: #fff2f2; color: #c62828; }
+.tf-half.sol  .tf-type { background: #ecfbf0; color: #1b5e20; }
+.tf-title { font-size: 12px; font-weight: 500; line-height: 1.35; margin-bottom: 4px; color: #1d1d1f; }
+.tf-desc  { font-size: 11px; color: #636366; line-height: 1.45; }
+.tf-hint { font-size: 10px; color: #c7c7cc; float: right; margin-top: 1px; user-select: none; }
 
 /* Meta pills row */
-.tf-meta { padding: 6px 12px; display: flex; gap: 5px; flex-wrap: wrap; background: #fafafa; }
+.tf-meta { padding: 8px 14px; display: flex; gap: 5px; flex-wrap: wrap; background: #fafafa; border-top: 0.5px solid rgba(0,0,0,0.05); }
 
 /* Pills */
-.pill {
-  display: inline-flex; align-items: center; gap: 3px;
-  background: white; border: 0.5px solid #e2e8f0; border-radius: 20px;
-  padding: 2px 9px; font-size: 10px;
-}
-.pill-lbl { color: #94a3b8; }
+.pill { display: inline-flex; align-items: center; gap: 3px; background: white; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 20px; padding: 3px 10px; font-size: 10px; cursor: pointer; transition: all 0.1s; }
+.pill:hover { background: #f0f6ff; border-color: rgba(59,130,246,0.3); }
+.pill.time { cursor: default; }
+.pill.time:hover { background: white; border-color: rgba(0,0,0,0.1); }
+.pill-lbl { color: #86868b; }
 .pill-val { font-weight: 600; }
-.v-hi { color: #b91c1c; }
-.v-mi { color: #92400e; }
-.v-lo { color: #166534; }
-.pill.clickable { cursor: pointer; }
-.pill.clickable:hover { border-color: #93c5fd; background: #eff6ff; }
-.tf-hint { font-size: 10px; color: #cbd5e1; float: right; margin-top: 1px; user-select: none; }
-.tf-half:hover .tf-hint { color: #94a3b8; }
+.v-hi { color: #c62828; }
+.v-mi { color: #bf6000; }
+.v-lo { color: #1b5e20; }
 
 /* Edit mode */
-.tf-bar { display: none; padding: 5px 12px; gap: 6px; border-top: 0.5px solid #f1f5f9; background: #fafafa; }
+.tf-bar { display: none; padding: 6px 14px; gap: 6px; border-top: 0.5px solid rgba(0,0,0,0.05); background: #fafafa; }
 .em .tf-bar { display: flex; }
 .delbtn { background: none; border: 0.5px solid #fca5a5; border-radius: 5px; cursor: pointer; color: #ef4444; font-size: 11px; padding: 2px 8px; font-family: inherit; }
 .delbtn:hover { background: #fee2e2; }
@@ -106,28 +96,28 @@ main { padding: 10px 20px 40px; max-width: 900px; margin: 0 auto; }
 /* Panel */
 .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.18); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
 .overlay.open { opacity: 1; pointer-events: all; }
-.panel { position: fixed; right: 0; top: 0; bottom: 0; width: 350px; background: white; z-index: 201; transform: translateX(100%); transition: transform 0.25s ease; overflow-y: auto; border-left: 0.5px solid #e2e8f0; display: flex; flex-direction: column; }
+.panel { position: fixed; right: 0; top: 0; bottom: 0; width: 360px; background: white; z-index: 201; transform: translateX(100%); transition: transform 0.25s ease; overflow-y: auto; border-left: 0.5px solid rgba(0,0,0,0.1); display: flex; flex-direction: column; }
 .panel.open { transform: translateX(0); }
-.panel-head { padding: 14px 16px; border-bottom: 0.5px solid #e2e8f0; display: flex; align-items: flex-start; gap: 10px; position: sticky; top: 0; background: white; }
-.panel-head h2 { font-size: 13px; font-weight: 500; flex: 1; line-height: 1.4; }
-.panel-close { background: none; border: none; cursor: pointer; font-size: 18px; color: #94a3b8; line-height: 1; padding: 0; }
-.panel-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; }
-.ps-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; margin-bottom: 4px; }
-.ps-prob { padding: 10px 12px; border: 0.5px solid #fca5a5; border-left: 3px solid #e24b4a; border-radius: 7px; }
-.ps-prob .ps-label { color: #b91c1c; }
-.ps-sol  { padding: 10px 12px; border: 0.5px solid #86efac; border-left: 3px solid #1D9E75; border-radius: 7px; }
-.ps-sol  .ps-label { color: #15803d; }
-.ps-p { font-size: 12px; line-height: 1.6; color: #334155; }
-.ps-ul { font-size: 12px; line-height: 1.6; padding-left: 15px; color: #334155; margin-top: 4px; }
-.ps-ul li { margin-bottom: 2px; }
-.ps-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 7px; }
-hr.sep { border: none; border-top: 0.5px solid #e2e8f0; }
+.panel-head { padding: 16px 18px; border-bottom: 0.5px solid rgba(0,0,0,0.08); display: flex; align-items: flex-start; gap: 10px; position: sticky; top: 0; background: white; }
+.panel-head h2 { font-size: 13px; font-weight: 600; flex: 1; line-height: 1.4; }
+.panel-close { background: rgba(0,0,0,0.06); border: none; cursor: pointer; font-size: 15px; color: #636366; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.panel-body { padding: 16px 18px; display: flex; flex-direction: column; gap: 14px; }
+.ps-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; margin-bottom: 5px; }
+.ps-prob { padding: 12px 14px; background: #fff8f8; border: 0.5px solid rgba(198,40,40,0.15); border-radius: 12px; }
+.ps-prob .ps-label { color: #c62828; }
+.ps-sol  { padding: 12px 14px; background: #f6fff8; border: 0.5px solid rgba(27,94,32,0.15); border-radius: 12px; }
+.ps-sol  .ps-label { color: #1b5e20; }
+.ps-p { font-size: 12px; line-height: 1.6; color: #3a3a3c; }
+.ps-ul { font-size: 12px; line-height: 1.6; padding-left: 16px; color: #3a3a3c; margin-top: 5px; }
+.ps-ul li { margin-bottom: 3px; }
+.ps-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+hr.sep { border: none; border-top: 0.5px solid rgba(0,0,0,0.08); }
 
 /* Views */
 .matrix-view { display: none; }
 .matrix-view.active { display: block; }
 .table-view.hidden { display: none; }
-.empty { text-align: center; padding: 40px; color: #94a3b8; font-size: 13px; }
+.empty { text-align: center; padding: 40px; color: #86868b; font-size: 13px; }
 </style>
 </head>
 <body>
@@ -136,6 +126,7 @@ hr.sep { border: none; border-top: 0.5px solid #e2e8f0; }
   <div class="h-title">
     <h1>KMU Problemlösungsanalyse</h1>
     <span>Arbeitsprobe Jens Meyer · Mai 2026</span>
+
   </div>
   <div class="h-right">
     <select id="fCat" onchange="render()">
@@ -363,10 +354,9 @@ function valClass(v) { return v==='Hoch'?'v-hi':v==='Mittel'?'v-mi':'v-lo'; }
 
 function pillHtml(label, value, idx, field) {
   const vc = valClass(value);
-  const extra = editMode ? ` clickable" onclick="cycleLevel(${idx},'${field}'` : '"';
-  return `<span class="pill${editMode?' clickable':''}" ${editMode?`onclick="cycleLevel(${idx},'${field}')"`:''}>
+  return `<span class="pill" onclick="cycleLevel(${idx},'${field}')" title="Klick zum Ändern">
     <span class="pill-lbl">${label}</span>
-    <span class="pill-val ${vc}" data-idx="${idx}" data-field="${field}">${value}</span>
+    <span class="pill-val ${vc}">${value}</span>
   </span>`;
 }
 
@@ -443,19 +433,21 @@ function tfHtml(item) {
   const stopProp = editMode ? 'onclick="event.stopPropagation()"' : '';
   return `
   <div class="tf${editMode?' em':''}">
-    <div class="tf-half prob" onclick="openPanel(${i},'problem')">
-      <div><span class="tf-type">⚠ Problem</span><span class="tf-hint">ⓘ Details</span></div>
-      <div class="tf-title" ${ed} ${stopProp} oninput="DATA[${i}].problem.title=this.textContent">${item.problem.title}</div>
-      <div class="tf-desc"  ${ed} ${stopProp} oninput="DATA[${i}].problem.detail=this.textContent">${item.problem.detail}</div>
-    </div>
-    <div class="tf-half sol" onclick="openPanel(${i},'solution')">
-      <div><span class="tf-type">✓ Lösung</span><span class="tf-hint">ⓘ Details</span></div>
-      <div class="tf-title" ${ed} ${stopProp} oninput="DATA[${i}].solution.title=this.textContent">${item.solution.title}</div>
-      <div class="tf-desc"  ${ed} ${stopProp} oninput="DATA[${i}].solution.detail=this.textContent">${item.solution.detail}</div>
+    <div class="tf-split">
+      <div class="tf-half prob" onclick="openPanel(${i},'problem')">
+        <div><span class="tf-type">⚠ Problembeschreibung</span><span class="tf-hint">ⓘ</span></div>
+        <div class="tf-title" ${ed} ${stopProp} oninput="DATA[${i}].problem.title=this.textContent">${item.problem.title}</div>
+        <div class="tf-desc"  ${ed} ${stopProp} oninput="DATA[${i}].problem.detail=this.textContent">${item.problem.detail}</div>
+      </div>
+      <div class="tf-half sol" onclick="openPanel(${i},'solution')">
+        <div><span class="tf-type">✓ Lösungsansätze</span><span class="tf-hint">ⓘ</span></div>
+        <div class="tf-title" ${ed} ${stopProp} oninput="DATA[${i}].solution.title=this.textContent">${item.solution.title}</div>
+        <div class="tf-desc"  ${ed} ${stopProp} oninput="DATA[${i}].solution.detail=this.textContent">${item.solution.detail}</div>
+      </div>
     </div>
     <div class="tf-meta">
       ${pillHtml('Impact', item.impact, i, 'impact')}
-      ${pillHtml('Arbeitsaufwand', item.workload, i, 'workload')}
+      ${pillHtml('Aufwand', item.workload, i, 'workload')}
       ${timeHtml(item.time, i)}
     </div>
     ${editMode?`<div class="tf-bar"><button class="delbtn" onclick="delTF(${i})">🗑 Themenfeld löschen</button></div>`:''}
@@ -484,14 +476,14 @@ function openPanel(idx, side) {
   if(side==='problem') {
     body.innerHTML = `
       <div class="ps ps-prob">
-        <div class="ps-label">⚠ Problem</div>
+        <div class="ps-label">⚠ Problembeschreibung</div>
         <p class="ps-p">${item.problem.detail}</p>
         <ul class="ps-ul">${item.problem.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
       </div>
       <div>${metaHtml}</div>
       <hr class="sep">
       <div class="ps ps-sol">
-        <div class="ps-label">✓ Zugehörige Lösung</div>
+        <div class="ps-label">✓ Lösungsansätze</div>
         <p class="ps-p" style="font-weight:500;margin-bottom:5px">${item.solution.title}</p>
         <p class="ps-p">${item.solution.detail}</p>
         <ul class="ps-ul">${item.solution.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
@@ -499,14 +491,14 @@ function openPanel(idx, side) {
   } else {
     body.innerHTML = `
       <div class="ps ps-sol">
-        <div class="ps-label">✓ Lösung</div>
+        <div class="ps-label">✓ Lösungsansätze</div>
         <p class="ps-p">${item.solution.detail}</p>
         <ul class="ps-ul">${item.solution.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
       </div>
       <div>${metaHtml}</div>
       <hr class="sep">
       <div class="ps ps-prob">
-        <div class="ps-label">⚠ Adressiertes Problem</div>
+        <div class="ps-label">⚠ Problembeschreibung</div>
         <p class="ps-p" style="font-weight:500;margin-bottom:5px">${item.problem.title}</p>
         <p class="ps-p">${item.problem.detail}</p>
       </div>`;
@@ -712,23 +704,28 @@ function renderMatrix() {
     <text transform="rotate(-90,22,${(rows[1]+rows[2])/2})" x="22" y="${(rows[1]+rows[2])/2+4}" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="-apple-system,sans-serif">Mittel / Gering</text>
     <text transform="rotate(-90,8,${py0+gridH/2})" x="8" y="${py0+gridH/2+4}" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="-apple-system,sans-serif">Impact ↑</text>`;
 
-  // Legend (2 columns)
-  const legendHtml=circleData.map(({d,num,color,idx})=>`
-    <div style="display:flex;align-items:center;gap:7px;padding:4px 0;border-bottom:0.5px solid #f8fafc;cursor:pointer" onclick="openPanel(${idx},'problem')">
-      <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;min-width:20px;border-radius:50%;background:${color};color:white;font-size:9px;font-weight:700;flex-shrink:0">${num}</span>
-      <span style="font-size:11px;color:#1e293b;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${TAGS[d.problem.title]||d.problem.title.slice(0,22)}</span>
-    </div>`).join('');
+  // Legend with clickable Impact/Aufwand badges
+  const legendHtml=circleData.map(({d,num,color,idx})=>{
+    const ic=d.impact==='Hoch'?'#c62828':d.impact==='Mittel'?'#bf6000':'#1b5e20';
+    const wc=d.workload==='Hoch'?'#c62828':d.workload==='Mittel'?'#bf6000':'#1b5e20';
+    return `
+    <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:0.5px solid #f5f5f7;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;min-width:20px;border-radius:50%;background:${color};color:white;font-size:9px;font-weight:700;flex-shrink:0;cursor:pointer" onclick="openPanel(${idx},'problem')">${num}</span>
+      <span style="font-size:11px;color:#1d1d1f;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer" onclick="openPanel(${idx},'problem')">${TAGS[d.problem.title]||d.problem.title.slice(0,20)}</span>
+      <span style="display:inline-flex;align-items:center;gap:2px;background:white;border:0.5px solid rgba(0,0,0,0.1);border-radius:20px;padding:2px 7px;font-size:9px;cursor:pointer;white-space:nowrap;flex-shrink:0" onclick="cycleLevel(${idx},'impact')" title="Impact ändern"><span style="color:#86868b">I</span><span style="font-weight:600;color:${ic}">${d.impact}</span></span>
+      <span style="display:inline-flex;align-items:center;gap:2px;background:white;border:0.5px solid rgba(0,0,0,0.1);border-radius:20px;padding:2px 7px;font-size:9px;cursor:pointer;white-space:nowrap;flex-shrink:0" onclick="cycleLevel(${idx},'workload')" title="Aufwand ändern"><span style="color:#86868b">A</span><span style="font-weight:600;color:${wc}">${d.workload}</span></span>
+    </div>`}).join('');
 
   document.getElementById('matrixView').innerHTML=`
-    <div style="background:#f1f5f9;border:0.5px solid #e2e8f0;border-radius:8px;overflow:hidden">
+    <div style="background:#f5f5f7;border:0.5px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden">
       <svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="display:block">
-        <rect width="${W}" height="${H}" fill="#f1f5f9"/>
+        <rect width="${W}" height="${H}" fill="#f5f5f7"/>
         ${qbg}${qdivs}${border}${qlabels}${circlesSvg}${axisLbls}
       </svg>
       <div style="padding:12px 16px 16px;border-top:0.5px solid #e2e8f0">
         <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:#94a3b8;margin-bottom:6px">Legende · Kreisgröße = Impact · Position = Aufwand / Impact</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px">${legendHtml}</div>
-        <div style="padding-top:6px;font-size:10px;color:#cbd5e1">Kreis anklicken → Detailansicht</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px">${legendHtml}</div>
+        <div style="padding-top:6px;font-size:10px;color:#c7c7cc">Kreis = Details · I/A-Badge = Impact/Aufwand ändern</div>
       </div>
     </div>`;
 }
