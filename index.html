@@ -687,17 +687,16 @@ function renderMatrix() {
     </g>`).join('');
 
   const qdX=cols[1], qdY=rows[1];
-  function qPill(x,y,label,bg,tc,sub){
-    const pw=label.length*7.2+20;
-    return `<rect x="${x}" y="${y}" width="${pw}" height="22" rx="11" fill="white" stroke="${tc}" stroke-width="1.5"/>
-    <text x="${x+pw/2}" y="${y+15}" font-size="12" font-weight="700" fill="${tc}" text-anchor="middle" font-family="-apple-system,sans-serif">${label}</text>
-    <text x="${x}" y="${y+36}" font-size="9" fill="#94a3b8" font-family="-apple-system,sans-serif">${sub}</text>`;
+  function qLabel(x,y,label,tc){
+    const pw=label.length*6.4+16;
+    return `<rect x="${x}" y="${y}" width="${pw}" height="18" rx="9" fill="${tc}" fill-opacity="0.10"/>
+    <text x="${x+pw/2}" y="${y+13}" font-size="10" font-weight="600" fill="${tc}" text-anchor="middle" font-family="-apple-system,sans-serif">${label}</text>`;
   }
   const qlabels=`
-    ${qPill(px0+8,py0+8,'Sofort angehen','#fef5f5','#ef4444','Impact Hoch · Aufwand Gering/Mittel')}
-    ${qPill(qdX+8,py0+8,'Strategisch planen','#f5fef8','#16a34a','Impact Hoch · Aufwand Hoch')}
-    ${qPill(px0+8,qdY+8,'Nebenbei erledigen','#fef8f5','#f97316','Impact Mittel/Gering · Aufwand Gering/Mittel')}
-    ${qPill(qdX+8,qdY+8,'Hinterfragen','#f5f9fe','#3b82f6','Impact Mittel/Gering · Aufwand Hoch')}`;
+    ${qLabel(px0+8,py0+8,'Sofort angehen','#ef4444')}
+    ${qLabel(qdX+8,py0+8,'Strategisch planen','#16a34a')}
+    ${qLabel(px0+8,qdY+8,'Nebenbei erledigen','#f97316')}
+    ${qLabel(qdX+8,qdY+8,'Hinterfragen','#3b82f6')}`;
 
   const qbg=`
     <rect x="${cols[0]}" y="${rows[0]}" width="${cw}" height="${ch}" fill="#fef5f5"/>
@@ -706,19 +705,19 @@ function renderMatrix() {
     <rect x="${cols[1]}" y="${rows[1]}" width="${cw}" height="${ch}" fill="#f5f9fe"/>`;
 
   const qdivs=`
-    <line x1="${qdX}" y1="${py0}" x2="${qdX}" y2="${py1}" stroke="#cbd5e1" stroke-width="1.5"/>
-    <line x1="${px0}" y1="${qdY}" x2="${px1}" y2="${qdY}" stroke="#cbd5e1" stroke-width="1.5"/>`;
+    <line x1="${qdX}" y1="${py0}" x2="${qdX}" y2="${py1}" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+    <line x1="${px0}" y1="${qdY}" x2="${px1}" y2="${qdY}" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>`;
 
   const gridW=px1-px0, gridH=py1-py0;
-  const border=`<rect x="${px0}" y="${py0}" width="${gridW}" height="${gridH}" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>`;
+  const border=`<rect x="${px0}" y="${py0}" width="${gridW}" height="${gridH}" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>`;
 
   const axisLbls=`
-    <text x="${(cols[0]+cols[1])/2}" y="${py1+16}" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="-apple-system,sans-serif">Gering / Mittel</text>
-    <text x="${(cols[1]+cols[2])/2}" y="${py1+16}" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="-apple-system,sans-serif">Hoch</text>
-    <text x="${(px1+px0)/2}" y="${py1+30}" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="-apple-system,sans-serif">Arbeitsaufwand →</text>
-    <text transform="rotate(-90,22,${(rows[0]+rows[1])/2})" x="22" y="${(rows[0]+rows[1])/2+4}" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="-apple-system,sans-serif">Hoch</text>
-    <text transform="rotate(-90,22,${(rows[1]+rows[2])/2})" x="22" y="${(rows[1]+rows[2])/2+4}" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="-apple-system,sans-serif">Mittel / Gering</text>
-    <text transform="rotate(-90,8,${py0+gridH/2})" x="8" y="${py0+gridH/2+4}" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="-apple-system,sans-serif">Impact ↑</text>`;
+    <text x="${(cols[0]+cols[1])/2}" y="${py1+16}" font-size="10" fill="#c7c7cc" text-anchor="middle" font-family="-apple-system,sans-serif">Gering / Mittel</text>
+    <text x="${(cols[1]+cols[2])/2}" y="${py1+16}" font-size="10" fill="#c7c7cc" text-anchor="middle" font-family="-apple-system,sans-serif">Hoch</text>
+    <text x="${(px1+px0)/2}" y="${py1+30}" font-size="10" fill="#86868b" text-anchor="middle" font-family="-apple-system,sans-serif">Arbeitsaufwand →</text>
+    <text transform="rotate(-90,22,${(rows[0]+rows[1])/2})" x="22" y="${(rows[0]+rows[1])/2+4}" font-size="10" fill="#c7c7cc" text-anchor="middle" font-family="-apple-system,sans-serif">Hoch</text>
+    <text transform="rotate(-90,22,${(rows[1]+rows[2])/2})" x="22" y="${(rows[1]+rows[2])/2+4}" font-size="10" fill="#c7c7cc" text-anchor="middle" font-family="-apple-system,sans-serif">Mittel / Gering</text>
+    <text transform="rotate(-90,8,${py0+gridH/2})" x="8" y="${py0+gridH/2+4}" font-size="10" fill="#86868b" text-anchor="middle" font-family="-apple-system,sans-serif">Impact ↑</text>`;
 
   // Legend with clickable Impact/Aufwand badges
   const legendHtml=circleData.map(({d,num,color,idx})=>{
@@ -733,15 +732,15 @@ function renderMatrix() {
     </div>`}).join('');
 
   document.getElementById('matrixView').innerHTML=`
-    <div style="background:#f5f5f7;border:0.5px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden">
+    <div style="background:white;border:0.5px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden">
       <svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="display:block">
-        <rect width="${W}" height="${H}" fill="#f5f5f7"/>
+        <rect width="${W}" height="${H}" fill="white"/>
         ${qbg}${qdivs}${border}${qlabels}${circlesSvg}${axisLbls}
       </svg>
-      <div style="padding:12px 16px 16px;border-top:0.5px solid #e2e8f0">
-        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:#94a3b8;margin-bottom:6px">Legende · Kreisgröße = Impact · Position = Aufwand / Impact</div>
+      <div style="padding:10px 16px 14px;border-top:0.5px solid rgba(0,0,0,0.06);background:#fafafa">
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#86868b;margin-bottom:6px">Legende · Kreisgröße = Impact</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px">${legendHtml}</div>
-        <div style="padding-top:6px;font-size:10px;color:#c7c7cc">Kreis = Details · I/A-Badge = Impact/Aufwand ändern</div>
+        <div style="padding-top:6px;font-size:10px;color:#c7c7cc">Kreis = Details · I/A = Impact/Aufwand ändern</div>
       </div>
     </div>`;
 }
