@@ -615,7 +615,7 @@ function renderMatrix() {
     return;
   }
 
-  const W=640, H=580;
+  const W=640, H=600;
   const px0=72, py0=55;
   const cw=276, ch=248;
   const px1=px0+2*cw, py1=py0+2*ch;
@@ -720,9 +720,9 @@ function renderMatrix() {
     </div>`).join('');
 
   document.getElementById('matrixView').innerHTML=`
-    <div style="background:white;border:0.5px solid #e2e8f0;border-radius:8px;overflow:hidden">
+    <div style="background:#f1f5f9;border:0.5px solid #e2e8f0;border-radius:8px;overflow:hidden">
       <svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="display:block">
-        <rect width="${W}" height="${H}" fill="white"/>
+        <rect width="${W}" height="${H}" fill="#f1f5f9"/>
         ${qbg}${qdivs}${border}${qlabels}${circlesSvg}${axisLbls}
       </svg>
       <div style="padding:12px 16px 16px;border-top:0.5px solid #e2e8f0">
@@ -736,4 +736,4 @@ function renderMatrix() {
 render();
 </script>
 </body>
-</html>
+</ht
