@@ -171,6 +171,12 @@ hr.sep { border: none; border-top: 0.5px solid rgba(0,0,0,0.08); }
 </div>
 
 <script>
+// localStorage reset via ?reset in URL
+if (location.search.includes('reset')) {
+  localStorage.removeItem('kmu_data');
+  history.replaceState(null,'',location.pathname);
+}
+
 const LEVELS = ['Gering','Mittel','Hoch'];
 let editMode = false;
 let currentView = 'table';
