@@ -149,6 +149,7 @@ hr.sep { border: none; border-top: 0.5px solid rgba(0,0,0,0.08); }
       <button class="btn" id="vBtnMatrix" onclick="setView('matrix')">Matrix</button>
     </div>
     <button class="btn" id="editBtn" onclick="toggleEdit()">✎ Bearbeiten</button>
+    <button class="btn" id="saveBtn" onclick="exportState()" title="Aktuellen Stand direkt in die Quelldatei schreiben">⬇ Stand speichern</button>
     <button class="btn dark" onclick="addThemenfeld()">+ Themenfeld</button>
     <button class="btn dark" onclick="addKategorie()">+ Kategorie</button>
   </div>
@@ -183,7 +184,7 @@ const CATS = {
   "Krisenresilienz & Strategie":"🛡️"
 };
 
-let DATA = [
+let DATA = /*DS*/[
   { cat:"Finanzen & Liquidität",
     problem:{ title:"Liquiditäts- und Finanzierungsdruck", detail:"Nach mehreren schwachen Jahren sind Reserven aufgezehrt. Banken bewerten Industrie-KMU vorsichtiger, Zinslast und Lagerbindung drücken die Handlungsfähigkeit.", bullets:["Puffer für Investitionen fehlt","Kreditlimits werden enger","Lager bindet Kapital"] },
     solution:{ title:"Rollierende 13-Wochen-Liquiditätsplanung", detail:"Liquiditätslage sichtbar machen — nicht nur mit der Jahres-GuV. Aktiv steuern statt reaktiv reagieren.", bullets:["Zahlungsziele und Mahnwesen aktiv steuern","Lagerbestände auf Kapitalbindung durchforsten","Förderkredite und Bürgschaften früh prüfen"] },
@@ -348,7 +349,69 @@ let DATA = [
     problem:{ title:"Offline-Aktivitäten nicht mit Content-Strategie verknüpft", detail:"Messen, Networking-Events, Workshops und Partnertreffen generieren wertvolle Momente — die aber selten zu Content werden. Der Aufwand verpufft ohne digitale Verlängerung, Reichweite und Follow-up.", bullets:["Messepräsenz ohne LinkedIn-Vor- und Nachbereitung","Speaker-Auftritte und Workshops ohne Content-Dokumentation","Netzwerkkontakte werden nach Events nicht digital weitergepflegt"] },
     solution:{ title:"Jede Offline-Aktivität mit Content-Plan verknüpfen: Ankündigung → Live → Nachbericht", detail:"Ein Vortrag ergibt Posts, Clips und Fallstudien für Wochen. Jede Aktivität wird zum Content-Asset — wenn sie von Anfang an so geplant wird.", bullets:["Vor dem Event: LinkedIn-Ankündigung, Zielgruppe einladen","Während: Live-Posts, Fotos, Originalzitate als Content","Nach dem Event: Zusammenfassung, Learnings, Follow-up-Sequenz für neue Kontakte"] },
     impact:"Mittel", workload:"Gering", time:"30 Tage" }
-];
+]/*DE*/;
+
+async function getFileHandle() {
+  try {
+    return await new Promise((res,rej) => {
+      const r = indexedDB.open('kmu',1);
+      r.onupgradeneeded = e => e.target.result.createObjectStore('h');
+      r.onsuccess = e => {
+        const t = e.target.result.transaction('h','readonly');
+        const g = t.objectStore('h').get('fh');
+        g.onsuccess = () => res(g.result||null);
+        g.onerror = () => res(null);
+      };
+      r.onerror = () => res(null);
+    });
+  } catch(e) { return null; }
+}
+
+async function storeFileHandle(fh) {
+  try {
+    await new Promise((res,rej) => {
+      const r = indexedDB.open('kmu',1);
+      r.onupgradeneeded = e => e.target.result.createObjectStore('h');
+      r.onsuccess = e => {
+        const t = e.target.result.transaction('h','readwrite');
+        t.objectStore('h').put(fh,'fh');
+        t.oncomplete = res; t.onerror = rej;
+      };
+      r.onerror = rej;
+    });
+  } catch(e) {}
+}
+
+async function exportState() {
+  try {
+    let fh = await getFileHandle();
+    if (!fh) {
+      [fh] = await window.showOpenFilePicker({
+        types:[{description:'HTML',accept:{'text/html':['.html']}}],
+        multiple: false
+      });
+      await storeFileHandle(fh);
+    }
+    const perm = await fh.queryPermission({mode:'readwrite'});
+    if (perm !== 'granted') await fh.requestPermission({mode:'readwrite'});
+
+    const src = document.documentElement.outerHTML;
+    const before = src.split('/*DS*/')[0];
+    const after  = src.split('/*DE*/')[1];
+    if (!before || !after) { alert('Marker fehlt.'); return; }
+    const newSrc = before + '/*DS*/' + JSON.stringify(DATA) + '/*DE*/' + after;
+
+    const w = await fh.createWritable();
+    await w.write(newSrc);
+    await w.close();
+
+    const btn = document.getElementById('saveBtn');
+    btn.textContent = '✓ Gespeichert';
+    setTimeout(() => btn.textContent = '⬇ Stand speichern', 2000);
+  } catch(e) {
+    if (e.name !== 'AbortError') alert('Fehler: ' + e.message);
+  }
+}
 
 function valClass(v) { return v==='Hoch'?'v-hi':v==='Mittel'?'v-mi':'v-lo'; }
 
@@ -728,28 +791,4 @@ function renderMatrix() {
       <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;min-width:20px;border-radius:50%;background:${color};color:white;font-size:9px;font-weight:700;flex-shrink:0;cursor:pointer" onclick="openPanel(${idx},'problem')">${num}</span>
       <span style="font-size:11px;color:#1d1d1f;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer" onclick="openPanel(${idx},'problem')">${TAGS[d.problem.title]||d.problem.title.slice(0,20)}</span>
       <span style="display:inline-flex;align-items:center;gap:2px;background:white;border:0.5px solid rgba(0,0,0,0.1);border-radius:20px;padding:2px 7px;font-size:9px;cursor:pointer;white-space:nowrap;flex-shrink:0" onclick="cycleLevel(${idx},'impact')" title="Impact ändern"><span style="color:#86868b">I</span><span style="font-weight:600;color:${ic}">${d.impact}</span></span>
-      <span style="display:inline-flex;align-items:center;gap:2px;background:white;border:0.5px solid rgba(0,0,0,0.1);border-radius:20px;padding:2px 7px;font-size:9px;cursor:pointer;white-space:nowrap;flex-shrink:0" onclick="cycleLevel(${idx},'workload')" title="Aufwand ändern"><span style="color:#86868b">A</span><span style="font-weight:600;color:${wc}">${d.workload}</span></span>
-    </div>`}).join('');
-
-  document.getElementById('matrixView').innerHTML=`
-    <div style="background:white;border:0.5px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden">
-      <div style="padding:14px 16px 0;text-align:center">
-        <h2 style="font-size:15px;font-weight:600;color:#1d1d1f;letter-spacing:-0.2px">Entscheidungsmatrix</h2>
-      </div>
-      <svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="display:block">
-        <rect width="${W}" height="${H}" fill="white"/>
-        ${qbg}${qdivs}${border}${qlabels}${circlesSvg}${axisLbls}
-      </svg>
-      <div style="padding:10px 16px 14px;border-top:0.5px solid rgba(0,0,0,0.06);background:#fafafa">
-        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#86868b;margin-bottom:6px">Legende · Kreisgröße = Impact</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px">${legendHtml}</div>
-        <div style="padding-top:6px;font-size:10px;color:#c7c7cc">Kreis = Details · I/A = Impact/Aufwand ändern</div>
-      </div>
-    </div>`;
-}
-
-loadAll();
-render();
-</script>
-</body>
-</ht
+      <span style="display:inline-flex;align-items:center;gap:2px;background:white;border:0.
