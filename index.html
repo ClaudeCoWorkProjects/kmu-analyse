@@ -437,9 +437,17 @@ function loadAll() {
     const saved = localStorage.getItem('kmu_data');
     if (!saved) return;
     const s = JSON.parse(saved);
-    if (s.DATA && Array.isArray(s.DATA)) { DATA.length=0; s.DATA.forEach(d=>DATA.push(d)); }
-    if (s.CATS && typeof s.CATS==='object') { Object.keys(CATS).forEach(k=>delete CATS[k]); Object.assign(CATS, s.CATS); }
-  } catch(e) {}
+    // Nur laden wenn gespeicherte Daten plausibel sind
+    if (s.DATA && Array.isArray(s.DATA) && s.DATA.length >= DATA.length) {
+      DATA.length=0; s.DATA.forEach(d=>DATA.push(d));
+    } else {
+      // Korrupte Daten verwerfen
+      localStorage.removeItem('kmu_data');
+    }
+    if (s.CATS && typeof s.CATS==='object' && Object.keys(s.CATS).length > 0) {
+      Object.keys(CATS).forEach(k=>delete CATS[k]); Object.assign(CATS, s.CATS);
+    }
+  } catch(e) { localStorage.removeItem('kmu_data'); }
 }
 
 function cycleLevel(idx, field) {
