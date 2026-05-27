@@ -140,6 +140,7 @@ hr.sep { border: none; border-top: 0.5px solid rgba(0,0,0,0.08); }
       <button class="btn on" id="vBtnTable" onclick="setView('table')">Liste</button>
       <button class="btn" id="vBtnMatrix" onclick="setView('matrix')">Matrix</button>
     </div>
+    <button class="btn" id="saveBtn" onclick="exportState()" title="Stand speichern">⬇ Stand speichern</button>
     <button class="btn" id="editBtn" onclick="toggleEdit()">✎ Bearbeiten</button>
     <button class="btn dark" onclick="addThemenfeld()">+ Themenfeld</button>
     <button class="btn dark" onclick="addKategorie()">+ Kategorie</button>
@@ -248,6 +249,56 @@ async function exportState() {
   }
 }
 
+
+async function getFileHandle() {
+  try {
+    return await new Promise((res,rej)=>{
+      const r=indexedDB.open('kmuFH',1);
+      r.onupgradeneeded=e=>e.target.result.createObjectStore('h');
+      r.onsuccess=e=>{
+        const t=e.target.result.transaction('h','readonly');
+        const req=t.objectStore('h').get('fh');
+        req.onsuccess=()=>res(req.result||null); req.onerror=rej;
+      }; r.onerror=rej;
+    });
+  } catch(e){return null;}
+}
+async function storeFileHandle(fh) {
+  try {
+    await new Promise((res,rej)=>{
+      const r=indexedDB.open('kmuFH',1);
+      r.onupgradeneeded=e=>e.target.result.createObjectStore('h');
+      r.onsuccess=e=>{
+        const t=e.target.result.transaction('h','readwrite');
+        t.objectStore('h').put(fh,'fh');
+        t.oncomplete=res; t.onerror=rej;
+      }; r.onerror=rej;
+    });
+  } catch(e){}
+}
+async function exportState() {
+  try {
+    let fh=await getFileHandle();
+    if(!fh){
+      [fh]=await window.showOpenFilePicker({types:[{description:'HTML',accept:{'text/html':['.html']}}],multiple:false});
+      await storeFileHandle(fh);
+    }
+    const perm=await fh.queryPermission({mode:'readwrite'});
+    if(perm!=='granted') await fh.requestPermission({mode:'readwrite'});
+    const file=await fh.getFile();
+    const src=await file.text();
+    const before=src.split('/*DS*/')[0];
+    const after=src.split('/*DE*/')[1];
+    if(!before||!after){alert('Marker fehlt.');return;}
+    const newSrc=before+'/*DS*/'+JSON.stringify(DATA)+'/*DE*/'+after;
+    const w=await fh.createWritable();
+    await w.write(newSrc);
+    await w.close();
+    const btn=document.getElementById('saveBtn');
+    btn.textContent='✓ Gespeichert';
+    setTimeout(()=>btn.textContent='⬇ Stand speichern',2000);
+  } catch(e){if(e.name!=='AbortError')alert('Fehler: '+e.message);}
+}
 function valClass(v) { return v==='Hoch'?'v-hi':v==='Mittel'?'v-mi':'v-lo'; }
 
 function pillHtml(label, value, idx, field) {
