@@ -804,4 +804,35 @@ function renderMatrix() {
     return `
     <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:0.5px solid #f5f5f7;">
       <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;min-width:20px;border-radius:50%;background:${color};color:white;font-size:9px;font-weight:700;flex-shrink:0;cursor:pointer" onclick="openPanel(${idx},'problem')">${num}</span>
-      <span style="font-size:11px;color:#1d1d1f;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer" onclick="openPanel(${idx},'problem')">${
+      <span style="font-size:11px;color:#1d1d1f;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer" onclick="openPanel(${idx},'problem')">${d.problem.title}</span>
+      <div style="display:flex;gap:4px;margin-left:auto;flex-shrink:0;">
+        <span style="display:inline-flex;align-items:center;gap:3px;background:white;border:0.5px solid rgba(0,0,0,0.1);border-radius:20px;padding:2px 8px;font-size:10px;cursor:pointer" onclick="cycleLevel(${idx},'impact');renderMatrix()" title="Klick zum Ändern">
+          <span style="color:#86868b">Impact</span>&nbsp;<span style="font-weight:600;color:${ic}">${d.impact}</span>
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:3px;background:white;border:0.5px solid rgba(0,0,0,0.1);border-radius:20px;padding:2px 8px;font-size:10px;cursor:pointer" onclick="cycleLevel(${idx},'workload');renderMatrix()" title="Klick zum Ändern">
+          <span style="color:#86868b">Aufwand</span>&nbsp;<span style="font-weight:600;color:${wc}">${d.workload}</span>
+        </span>
+      </div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('matrixView').innerHTML=`
+    <div style="background:white;border:0.5px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden">
+      <svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="display:block">
+        <rect width="${W}" height="${H}" fill="white"/>
+        <text x="${W/2}" y="${py0/2+6}" font-size="17" font-weight="600" fill="#1d1d1f" text-anchor="middle" letter-spacing="-0.4" font-family="-apple-system,sans-serif">Entscheidungsmatrix</text>
+        ${qbg}${qdivs}${border}${qlabels}${circlesSvg}${axisLbls}
+      </svg>
+    </div>
+    <div style="margin-top:12px;background:white;border:0.5px solid rgba(0,0,0,0.08);border-radius:16px;padding:12px 16px;">
+      ${legendHtml}
+    </div>`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadAll();
+  render();
+});
+</script>
+</body>
+</html>
