@@ -437,11 +437,12 @@ function loadAll() {
     const saved = localStorage.getItem('kmu_data');
     if (!saved) return;
     const s = JSON.parse(saved);
-    // Nur laden wenn gespeicherte Daten plausibel sind
-    if (s.DATA && Array.isArray(s.DATA) && s.DATA.length >= DATA.length) {
+    // Strenge Validierung: Länge UND Felder des ersten Eintrags prüfen
+    const valid = s.DATA && Array.isArray(s.DATA) && s.DATA.length >= DATA.length
+      && s.DATA[0] && s.DATA[0].cat && s.DATA[0].problem && s.DATA[0].solution;
+    if (valid) {
       DATA.length=0; s.DATA.forEach(d=>DATA.push(d));
     } else {
-      // Korrupte Daten verwerfen
       localStorage.removeItem('kmu_data');
     }
     if (s.CATS && typeof s.CATS==='object' && Object.keys(s.CATS).length > 0) {
