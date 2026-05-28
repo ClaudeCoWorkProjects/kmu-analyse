@@ -185,52 +185,392 @@ const CATS = {
 
 let DATA = /*DS*/[{"cat":"Finanzen & Liquidität","problem":{"title":"Liquiditäts- und Finanzierungsdruck","detail":"Nach mehreren schwachen Jahren sind Reserven aufgezehrt. Banken bewerten Industrie-KMU vorsichtiger, Zinslast und Lagerbindung drücken die Handlungsfähigkeit.","bullets":["Puffer für Investitionen fehlt","Kreditlimits werden enger","Lager bindet Kapital"]},"solution":{"title":"Rollierende 13-Wochen-Liquiditätsplanung","detail":"Liquiditätslage sichtbar machen — nicht nur mit der Jahres-GuV. Aktiv steuern statt reaktiv reagieren.","bullets":["Zahlungsziele und Mahnwesen aktiv steuern","Lagerbestände auf Kapitalbindung durchforsten","Förderkredite und Bürgschaften früh prüfen"]},"impact":"Hoch","workload":"Gering","time":"30 Tage"},{"cat":"Finanzen & Liquidität","problem":{"title":"Hohe Energie- und Inputkosten","detail":"Energieintensive Fertigung trifft trotz Entlastungspaketen direkt die Marge. Das Niveau liegt über dem vieler internationaler Wettbewerber.","bullets":["Schwer planbare Kostenentwicklung","Direkte Margenbelastung","Wettbewerbsnachteil gegenüber Ausland"]},"solution":{"title":"Energie als messbare Kennzahl etablieren","detail":"Erst transparent machen, dann optimieren. Energie als feste Kalkulationsgröße — nicht als Gemeinkostenrest.","bullets":["Verbrauch je Maschine/Prozess messen","Lastspitzen glätten, Stand-by eliminieren","Längerfristige Lieferverträge gegen Volatilität"]},"impact":"Hoch","workload":"Mittel","time":"30–60 Tage"},{"cat":"Finanzen & Liquidität","problem":{"title":"Preissetzungsschwäche bei steigenden Kosten","detail":"Steigende Löhne und Materialkosten lassen sich nicht voll an Kunden weitergeben. Verlustbringer bleiben verborgen.","bullets":["Pauschalaufschläge statt Vollkostenkalkulation","Verlustbringer unsichtbar","Preisdruck ohne Gegenargumente"]},"solution":{"title":"Deckungsbeiträge je Produkt sichtbar machen","detail":"Kalkulation auf Vollkosten umstellen. Verlustbringer erkennen. Wertargumente statt Stückpreis.","bullets":["Vollkostenkalkulation je Auftrag/Produktgruppe","Verlustbringer identifizieren","Preisgespräche mit Qualität und Service argumentieren"]},"impact":"Hoch","workload":"Gering","time":"30 Tage"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Fehlende systematische Neukundengewinnung","detail":"Wachstum entsteht primär durch Empfehlungen. Ohne strukturierten Prozess bleibt das Potenzial zufällig, nicht skalierbar und abhängig von Glück.","bullets":["Kein definiertes Ideal Customer Profile (ICP)","Kein Outbound-Prozess — Akquise passiert, wird nicht gesteuert","Referral läuft ungeplant, kein systematisches Follow-up","Kein Account-Based Marketing für Wunschkunden"]},"solution":{"title":"Multi-Channel-Akquise: ICP · Outbound · Referral · ABM · Content","detail":"Neukundengewinnung braucht mindestens 3 parallele Kanäle. Jeder Kanal hat andere Zeiträume und Zielgruppen — sie verstärken sich gegenseitig.","bullets":["ICP scharf definieren: Branche, Größe, Schmerz, Entscheider — bevor ein Kanal gestartet wird","LinkedIn-Sequenz: 6 Touchpoints über 21 Tage, kein Pitch in Nachricht 1 — angestrebte Antwortrate 20–30%","Referral-Programm strukturieren: wer empfiehlt wem, welchen Anreiz, wie Follow-up?","Account-Based Marketing (ABM): 20–50 Wunschkunden namentlich definieren und mit personalisierten Sequenzen (E-Mail + LinkedIn + Event) bearbeiten","Cold Outreach per E-Mail: kurz, personalisiert, mit klarem Mehrwert — kein Massenversand","Webinare und Produktdemos als Lead-Magnet: zeigen statt erzählen, Qualifizierung vor dem ersten Gespräch"]},"impact":"Hoch","workload":"Hoch","time":"60–90 Tage"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Fehlende organische Sichtbarkeit: SEO und Content als Akquise-Kanal ungenutzt","detail":"KMU sind für suchende Kunden unsichtbar. Wer aktiv nach einer Lösung googelt und das Unternehmen nicht findet, kauft woanders. SEO hat einen ROI von 600–900% — wird aber von den meisten KMU nicht systematisch betrieben.","bullets":["Kein Google-Unternehmensprofil oder nicht gepflegt","Website nicht für Suchbegriffe der Zielgruppe optimiert","Kein Fachcontent der Vertrauen aufbaut und Leads generiert","Lokale Sichtbarkeit — obwohl entscheidend für regional tätige KMU — fehlt"]},"solution":{"title":"Google-Präsenz aufbauen: Local SEO + Fachcontent + strukturierte Sichtbarkeit","detail":"Organische Sichtbarkeit ist der einzige Akquise-Kanal der rund um die Uhr arbeitet. Einmal aufgebaut, generiert er dauerhaft Leads — ohne Budget pro Klick.","bullets":["Google Business Profile vollständig pflegen: Fotos, Öffnungszeiten, Bewertungen aktiv managen","Local SEO: lokale Keywords einbauen, Unternehmen in Verzeichnissen listen","Fachcontent: 4–6 Artikel pro Jahr zu konkreten Kundenproblemen — langfristig höchster ROI","Website auf Zielgruppen-Suchbegriffe ausrichten: nicht 'was wir tun', sondern 'was der Kunde sucht'","Kundenbewertungen aktiv einsammeln: sozialer Beweis für Neukunden"]},"impact":"Gering","workload":"Mittel","time":"60–180 Tage"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Ungenutzte Bestandskundenentwicklung","detail":"Bestandskunden werden gehalten, aber selten aktiv entwickelt. Upsell-Potenzial bleibt liegen — dabei ist die Marge hier am höchsten.","bullets":["Kein regelmäßiger Strategie-Review","Servicetiefe wird nicht gemessen","Upsell-Gespräche finden nicht statt"]},"solution":{"title":"Jährliche Reviews + gezielte Upsell-Gespräche","detail":"Schnellster Quick Win mit höchster Marge. Keine Neukundenakquise nötig.","bullets":["Jährliche Strategie-Reviews einführen","Servicetiefe und Nutzungsgrad messen","Upsell-Gespräche auf Basis der Daten führen"]},"impact":"Hoch","workload":"Mittel","time":"30–60 Tage"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Fehlende wiederkehrende Umsatzquellen","detail":"Zu starke Konzentration auf Projektgeschäft. Wiederkehrende Umsätze fehlen — in Krisen sofort spürbar.","bullets":["Kein Retainer-Modell","Wissen nicht als Produkt vermarktet","Keine Kooperationseinnahmen"]},"solution":{"title":"Retainer, Digitalprodukte & Kooperationen","detail":"Zweite Einnahmesäule schrittweise aufbauen — vom einfachsten Modell beginnend.","bullets":["Retainer bei 2 Bestandskunden als Pilot","Wissen als Produkt: Workshops, Templates","Kooperationen mit Empfehlungsprovision"]},"impact":"Mittel","workload":"Hoch","time":"6–12 Monate"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Wahrnehmung als austauschbarer Zulieferer","detail":"Wer austauschbar wirkt, wird über den Preis verglichen. In Krisen wird hier zuerst gekürzt.","bullets":["Keine sichtbare Differenzierung","Einfache Substituierbarkeit","Preisvergleich dominiert alle Gespräche"]},"solution":{"title":"Vom Lieferanten zum Partner: Wechselkosten erhöhen","detail":"Je tiefer man im Prozess des Kunden steckt, desto höher die Wechselkosten.","bullets":["Gemeinsame Entwicklung mit Kunden starten","Komplexität übernehmen die der Kunde nicht will","Lösungskompetenz explizit kommunizieren"]},"impact":"Hoch","workload":"Mittel","time":"90–180 Tage"},{"cat":"Digitalisierung & Prozesse","problem":{"title":"Keine Digitalstrategie, fehlende Priorisierung","detail":"Digitalisierung passiert punktuell und werkzeuggetrieben. 10 parallele Pilotprojekte ersetzen keine Roadmap.","bullets":["Kein Bild wo der Hebel am größten ist","Viele parallele Initiativen ohne Abschluss","Investitionen ohne messbaren Nutzen"]},"solution":{"title":"Engpass-first: schlanke Roadmap mit 3–5 Schritten","detail":"Mit dem größten Engpass beginnen — nicht mit dem attraktivsten Tool.","bullets":["Engpässe identifizieren: Verzögerungen, Fehler, Doppelarbeit","Max. 3 Vorhaben mit klarem Nutzen priorisieren","12–18-Monats-Roadmap erstellen"]},"impact":"Mittel","workload":"Gering","time":"30 Tage"},{"cat":"Digitalisierung & Prozesse","problem":{"title":"Datensilos und schlechte Datenqualität","detail":"Daten liegen verstreut in Excel, ERP, Maschinen und Köpfen. ~75% der KMU kämpfen damit.","bullets":["Keine einheitlichen Stammdaten","Unklare Zuständigkeiten für Datenpflege","Entscheidungen auf wackligem Fundament"]},"solution":{"title":"Stammdaten bereinigen, KPIs reduzieren","detail":"Lieber 5 verlässliche Kennzahlen als ein Dashboard auf wackligem Fundament.","bullets":["Stammdaten für priorisierte Prozesse aufräumen","Einheitliche Zuständigkeit für Datenpflege","5 verlässliche KPIs statt 50 unsichere"]},"impact":"Mittel","workload":"Mittel","time":"60–90 Tage"},{"cat":"Digitalisierung & Prozesse","problem":{"title":"Insellösungen ohne Systemintegration","detail":"Einzelne Tools werden eingeführt ohne dass Bereiche zusammenspielen. Medienbrüche bleiben.","bullets":["Bereiche nicht verbunden","Manuelle Übertragungen als Fehlerquelle","Neue Tools erhöhen Komplexität"]},"solution":{"title":"End-to-end denken: Schnittstellen vor Tools","detail":"Ein integrierter Kernprozess bringt mehr als fünf isolierte Apps.","bullets":["Medienbrüche kartieren","Schnittstellen klären vor neuen Tools","Integration als Voraussetzung — nicht Nachrüstung"]},"impact":"Mittel","workload":"Mittel","time":"90–180 Tage"},{"cat":"Digitalisierung & Prozesse","problem":{"title":"Cybersicherheitsrisiken durch Vernetzung","detail":"Mit Vernetzung von Maschinen, ERP und Fernwartung wächst die Angriffsfläche. Ein Angriff kann die Produktion stilllegen.","bullets":["Keine getesteten Backups","Fehlende Zugriffskonzepte","Mitarbeitende nicht sensibilisiert"]},"solution":{"title":"Basisschutz zuerst — konsequent","detail":"Sicherheit als Voraussetzung jeder Vernetzung. Kein Hexenwerk, aber Disziplin.","bullets":["Backups: getestet, mit offline-Kopie","Updates konsequent, Zugriffskonzept umsetzen","Phishing-Schulung, Notfallplan schriftlich"]},"impact":"Hoch","workload":"Gering","time":"30 Tage"},{"cat":"Personal & Wissen","problem":{"title":"Fachkräftemangel und demografischer Wissensverlust","detail":"Erfahrene Fachkräfte gehen in Rente. Wissen verlässt das Unternehmen mit ihnen.","bullets":["Kritisches Prozesswissen nicht dokumentiert","Lange Einarbeitungszeiten","Struktureller Mangel am Markt"]},"solution":{"title":"Wissen sichern, Tandems bilden, gezielt automatisieren","detail":"Wissen sichern bevor es geht. Automatisierung dort wo Personal strukturell fehlt.","bullets":["Kritische Prozesse dokumentieren vor dem Abgang","Tandems aus erfahrenen und neuen Kräften","Automatisierung gezielt wo dauerhaft Personal fehlt"]},"impact":"Hoch","workload":"Mittel","time":"90–180 Tage"},{"cat":"Personal & Wissen","problem":{"title":"Unklare Personalperformance, fehlendes Onboarding","detail":"Ohne klare KPIs bleibt Performance subjektiv. Neues Personal wird unstrukturiert eingearbeitet.","bullets":["Keine rollenspezifischen KPIs","Onboarding ist Zufall nicht System","Wissen schwer übertragbar"]},"solution":{"title":"KPIs je Rolle + standardisiertes Onboarding","detail":"Ziel: 20% mehr Kapazität ohne zusätzliche Einstellungen.","bullets":["KPIs je Rolle klar definieren","Onboarding-Prozess standardisieren","Wissen dokumentieren und übertragbar machen"]},"impact":"Mittel","workload":"Mittel","time":"90–180 Tage"},{"cat":"Personal & Wissen","problem":{"title":"Bürokratielast bindet Führungszeit","detail":"Nachweis- und Berichtspflichten binden überproportional Zeit der Führung — Zeit die für das Kerngeschäft fehlt.","bullets":["Führung in Routineaufgaben gebunden","Kein Überblick über alle Pflichten","Wiederkehrendes nicht standardisiert"]},"solution":{"title":"Pflichten inventarisieren und Routinen bauen","detail":"Einmal sauber aufstellen — dann läuft es fast von selbst.","bullets":["Alle Pflichten inventarisieren, Zuständige benennen","Checklisten und Vorlagen für Wiederkehrendes","IHK und Verbände für Sammel-Lösungen nutzen"]},"impact":"Gering","workload":"Gering","time":"30–60 Tage"},{"cat":"Markt & Wettbewerb","problem":{"title":"Preisdruck durch subventionierte Importe","detail":"Chinesische Anbieter bieten unter deutschen Vollkosten an. Reiner Preiswettbewerb ist strukturell nicht zu gewinnen.","bullets":["Standardprodukte unter maximalem Druck","Preiskampf endet mit Marginenverfall","Keine wirksamen Gegenargumente"]},"solution":{"title":"Differenzierung: Qualität, Service, Nähe, Lösung","detail":"Den Wettbewerb dorthin verlagern wo Preis nicht allein entscheidet.","bullets":["Eigenen Wertbeitrag konkret benennen und belegen","Standardprodukte ohne Differenzierungschance prüfen","Service, Liefertreue, Sonderanfertigung als Argumente"]},"impact":"Hoch","workload":"Mittel","time":"90–180 Tage"},{"cat":"Markt & Wettbewerb","problem":{"title":"Lieferkettenabhängigkeit und Single-Source-Risiken","detail":"Vorprodukte aus wenigen, teils geopolitisch riskanten Quellen. Ein Ausfall trifft die gesamte Fertigung.","bullets":["Single-Source bei kritischen Teilen","Keine qualifizierten Zweitlieferanten","Geopolitische Risiken nicht integriert"]},"solution":{"title":"Zweitlieferanten qualifizieren + regional diversifizieren","detail":"Gezielte Sicherheitsbestände für kritische Teile — nicht pauschal für alles.","bullets":["Kritische Teile und Single-Source-Risiken identifizieren","Zweitlieferanten qualifizieren","Lieferantenbasis regional diversifizieren"]},"impact":"Hoch","workload":"Mittel","time":"60–90 Tage"},{"cat":"Markt & Wettbewerb","problem":{"title":"Geopolitische Unsicherheit: Zölle und Handelskonflikte","detail":"Rahmenbedingungen ändern sich schnell. Wer keine Szenarien vorbereitet hat verliert im Ernstfall Reaktionszeit.","bullets":["Keine Vorbereitung auf Zollveränderungen","Wechselkursrisiken nicht eingepreist","Einzelereignisse können existenzbedrohend sein"]},"solution":{"title":"Szenarien vorbereiten statt Prognosen machen","detail":"Was passiert bei Zoll X? Ausfall Markt Y? Reaktionsoptionen vorab durchdenken.","bullets":["3 kritische Risikoszenarien durchspielen","Reaktionsoptionen vorbereiten — nicht improvisieren","Absatz- und Beschaffungsmärkte breit aufstellen"]},"impact":"Mittel","workload":"Gering","time":"30 Tage"},{"cat":"Krisenresilienz & Strategie","problem":{"title":"Klumpenrisiko: zu hohe Kundenabhängigkeit","detail":"Wenn ein Großkunde 40%+ des Umsatzes ausmacht ist das Unternehmen in Krisen extrem verletzlich.","bullets":["Ein Großkunde dominiert den Umsatz","Verlust eines Kunden = existenzielle Krise","Verhandlungsmacht fehlt"]},"solution":{"title":"Max. 30% Umsatz je Kunde — aktiv steuern","detail":"Kundenbasis aktiv verbreitern. Neukunden-ICP auf Diversifizierung ausrichten.","bullets":["Umsatzanteil je Kunde analysieren","Aktive Diversifizierungsstrategie definieren","ICP auf komplementäre Branchen ausrichten"]},"impact":"Hoch","workload":"Gering","time":"30–60 Tage"},{"cat":"Krisenresilienz & Strategie","problem":{"title":"Fehlende Liquiditätsreserven für Krisenzeiten","detail":"Ohne Puffer kann ein schwaches Quartal direkt in die Insolvenz führen. 2025: 24.000 Insolvenzen in Deutschland (+10,3%).","bullets":["Weniger als 1 Monat Liquiditätspuffer","Kreditlinie als einzige Absicherung","Keine Trennung operative Reserve/Notfall"]},"solution":{"title":"3 Monate Liquiditätsreserve als operative Bedingung","detail":"Nicht als Nice-to-have — als Betriebsvoraussetzung. Parallel: Wiederkehrumsätze auf ≥40% bringen.","bullets":["3 Monate Reserve als Zielgröße verankern","Liquiditätsaufbau als eigenes Projekt","Retainer einführen für ≥40% Wiederkehrumsatz"]},"impact":"Hoch","workload":"Mittel","time":"6–12 Monate"},{"cat":"Krisenresilienz & Strategie","problem":{"title":"Strategische Blindheit durch Tagesgeschäft","detail":"Niemand hat Zeit einen Schritt zurückzutreten. Probleme werden einzeln gelöst ohne das Gesamtsystem zu prüfen. Betriebsblindheit ist der Normalzustand.","bullets":["Keine Rolle für Gesamtbild-Analyse","Widersprüche zwischen Bereichen bleiben unbemerkt","Chancen und Risiken werden erst erkannt wenn sie brennen"]},"solution":{"title":"Querschnittsrolle: unabhängiger analytischer Blick","detail":"Eine Rolle deren Aufgabe es ist quer durch Bereiche zu schauen — Muster erkennen, Ungereimtheiten benennen, Szenarien durchdenken.","bullets":["Regelmäßige Gesamtsystem-Analyse unabhängig vom Tagesgeschäft","Widersprüche zwischen Bereichen identifizieren","Szenario- und Risikodenken institutionalisieren"]},"impact":"Hoch","workload":"Gering","time":"Sofort"},{"cat":"Markt & Wettbewerb","problem":{"title":"Fehlende Konkurrenzanalyse und unscharfe Positionierung","detail":"Die meisten KMU beobachten ihre Mitbewerber kaum systematisch. Ohne dieses Wissen bleibt die eigene Positionierung vage — man reagiert auf Preisdruck, anstatt ihn zu umgehen.","bullets":["Kein Überblick über Stärken und Preise der Mitbewerber","Eigene Alleinstellungsmerkmale nicht klar formuliert","Positionierungslücken im Markt werden nicht erkannt"]},"solution":{"title":"Wettbewerbsradar aufbauen, USP schärfen","detail":"Einmalige strukturierte Analyse der 3–5 wichtigsten Mitbewerber — dann als lebendiges Dokument pflegen. Die eigene Positionierung daraus ableiten.","bullets":["Mitbewerber nach Preis, Angebot, Zielgruppe und Stärken kartieren","Eigene Alleinstellung klar in einem Satz formulieren","Positionierungslücken als Wachstumschance nutzen"]},"impact":"Hoch","workload":"Mittel","time":"30–60 Tage"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Klumpenrisiko Vertrieb: zu wenige Akquise-Kanäle","detail":"Viele KMU verlassen sich auf einen einzigen Kanal — meist Empfehlungen. Fällt dieser aus, bricht der Neukundenstrom ein. Messen, Content-Marketing, Social Selling und Partnervertrieb werden kaum genutzt.","bullets":["Keine Präsenz auf Messen, in Verbänden oder Fachforen","Content-Marketing, SEO und Social Selling ungenutzt","Empfehlungsnetzwerk läuft ungeplant ohne aktives Management"]},"solution":{"title":"Mindestens 3 Akquise-Kanäle parallel aufbauen","detail":"Nicht alle auf einmal — aber systematisch erweitern. Jeder Kanal erschließt andere Zeiträume und Zielgruppen.","bullets":["Kanal-Audit: welche Kanäle passen zur Zielgruppe und sind realistisch?","Messe/Verband, Content/SEO und Direktakquise als Basispaket","Empfehlungsnetzwerk aktiv managen: wer empfiehlt wem und warum?"]},"impact":"Hoch","workload":"Hoch","time":"60–90 Tage"},{"cat":"Markt & Wettbewerb","problem":{"title":"Strukturelle Ausdünnung des Mittelstands trifft KMU-Kunden","detail":"Der klassische Mittelstand schrumpft: Nachfolgelücken, Insolvenzen, Übernahmen durch Konzerne. KMU verlieren damit langjährige Kunden, Netzwerkpartner und Zulieferer — ohne dass eine direkte Krise sichtbar ist.","bullets":["Kundenstamm veraltet, Nachfolgeunternehmen kaufen woanders","Konzerneinkauf zentralisiert — KMU-Lieferanten werden ausgelistet","Regionales Netzwerk dünnt aus, bisherige Angebote passen nicht mehr"]},"solution":{"title":"Kundenbasis aktiv auf wachsende Mittelstandssegmente ausrichten","detail":"Den Wandel als Signal nutzen: Tech-KMU, Handwerk 4.0 und wissensintensive Dienstleister wachsen — klassische Industriezulieferer schrumpfen.","bullets":["Kundenstamm analysieren: wer ist in 5 Jahren noch da?","Wachsende Segmente identifizieren und gezielt ansprechen","Angebot anpassen: was braucht der neue Mittelstand?"]},"impact":"Hoch","workload":"Mittel","time":"90–180 Tage"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Geringe Kompetenzwahrnehmung und zu schmale Angebotspalette","detail":"Kleine KMU werden von potenziellen Kunden oft unterschätzt: zu unbekannt, zu wenig Referenzen sichtbar. Gleichzeitig wirkt das Angebot oft austauschbar oder zu schmal für größere Aufträge.","bullets":["Website und Außenauftritt signalisieren nicht die tatsächliche Kompetenz","Fehlende Referenzen, Zertifizierungen oder Branchenanerkennungen","Angebotslücken schließen größere Projekte aus"]},"solution":{"title":"Kompetenz sichtbar machen, Angebot gezielt erweitern","detail":"Nicht mehr tun — sondern besser zeigen was man kann. Und gezielt ergänzen wo Lücken Aufträge kosten.","bullets":["Referenzen, Fallstudien und Auszeichnungen sichtbar machen","Zertifizierungen und Verbandsmitgliedschaften als Vertrauenssignal nutzen","1–2 komplementäre Leistungen ergänzen die größere Projekte ermöglichen"]},"impact":"Mittel","workload":"Gering","time":"30–60 Tage"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Einnahmequellen zu stark auf das Kerngeschäft konzentriert","detail":"Neben dem operativen Kerngeschäft gibt es selten weitere Einnahmeströme. Wissen, Methoden und Ressourcen des Unternehmens werden nicht als eigenständiges Produkt vermarktet.","bullets":["Know-how wird gratis mitgegeben statt als Produkt verkauft","Lizenzierung, White-Label oder Affiliate-Modelle ungenutzt","Eigene Kapazitäten (Maschinen, Flächen) generieren keine Nebeneinnahmen"]},"solution":{"title":"Wissen und Ressourcen als zweites Standbein aktivieren","detail":"Das Unternehmen ist mehr als sein Produkt. Methoden, Kapazitäten und Know-how können eigenständig monetarisiert werden.","bullets":["Know-how als Schulung, Template oder Lizenz verpacken","Überkapazitäten gezielt vermarkten","Affiliate- oder Empfehlungsmodelle mit Partnern etablieren"]},"impact":"Mittel","workload":"Hoch","time":"6–12 Monate"},{"cat":"Markt & Wettbewerb","problem":{"title":"Wegbrechen einkommensschwacher B2C-Kundschaft an Discounter","detail":"Im B2C-Bereich verlieren lokale KMU Kunden aus unteren Einkommenssegmenten an Discounter und Plattformen. Die Kaufkraftschere wächst — der mittlere Massenmarkt dünnt aus.","bullets":["Preissensible Stammkunden wandern zu Online- und Discountanbietern","Verbleibende Kunden erwarten Discountpreise bei Premiumservice","Mittleres Preissegment wird von oben und unten gleichzeitig verdrängt"]},"solution":{"title":"Konsequent ins Premium-Segment oder in die Nische","detail":"Den Mittelweg gibt es nicht mehr. Entweder Premium mit echtem Erlebnis und Service — oder enge Nische mit echter Spezialkompetenz.","bullets":["Preispositionierung bewusst wählen: kein Wettbewerb mit Discountern","Premium: Beratung, Erlebnis, Qualität und lokale Nähe als Differenzierung","Nische: Spezialbedarf bedienen den Discounter und Plattformen nicht können"]},"impact":"Hoch","workload":"Mittel","time":"90–180 Tage"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Netzwerke und Partnerschaften als Akquisequelle ungenutzt","detail":"Strategische Allianzen mit komplementären Anbietern, aktive Verbandsarbeit und Empfehlungsnetzwerke werden selten systematisch gepflegt — dabei ist Empfehlungsmarketing die effizienteste Akquiseform für KMU.","bullets":["Keine aktiven Kooperationen mit komplementären Anbietern","Verbandsarbeit als Pflicht wahrgenommen, nicht als Vertriebskanal","Empfehlungen laufen zufällig, kein systematisches Follow-up"]},"solution":{"title":"Strategische Partnerschaften aufbauen, Empfehlungen systematisieren","detail":"3–5 starke Kooperationspartner bringen mehr als 50 Einzelkontakte. Komplementäre Anbieter kennen dieselbe Zielgruppe.","bullets":["3–5 komplementäre Partner identifizieren und aktiv ansprechen","Gemeinsame Angebote oder gegenseitige Empfehlungsvereinbarungen schließen","Verbands- und Netzwerkkontakte aktiv als Vertriebskanal behandeln"]},"impact":"Hoch","workload":"Hoch","time":"30–60 Tage"},{"cat":"Krisenresilienz & Strategie","problem":{"title":"Ungeklärte Positionierungsfrage: Spezialisierung oder Generalisierung","detail":"Viele KMU sind weder Fisch noch Fleisch: zu breit für Premiumpreise, zu schmal für alle Kundenwünsche. Die strategische Frage wird nie explizit gestellt — die Positionierung ergibt sich aus dem was anfällt.","bullets":["Breites Angebot verwässert die Wahrnehmung als Experte","Tiefe Spezialisierung schützt vor Preisvergleich, erhöht aber Klumpenrisiko","Keine bewusste Strategie — Positionierung ist gewachsen, nicht gewählt"]},"solution":{"title":"Positionierungsentscheidung explizit treffen und kommunizieren","detail":"Es gibt keinen universell richtigen Weg — aber eine bewusste Entscheidung ist besser als keine. Sie bestimmt Preis, Marketing und Personalentwicklung.","bullets":["Bewertung: wo liegen die echten Stärken und wo ist die Marge am höchsten?","Spezialisierung: Nische tief erschließen, klare Expertenpositionierung aufbauen","Generalisierung: nur wenn breites Angebot durch starkes Qualitätsversprechen gehalten wird"]},"impact":"Hoch","workload":"Gering","time":"30 Tage"},{"cat":"Digitalisierung & Prozesse","problem":{"title":"KI- und Automatisierungspotenzial bleibt systematisch ungenutzt","detail":"Während größere Unternehmen KI bereits operativ einsetzen, fehlt kleinen KMU der Einstieg. Die Werkzeuge sind heute erschwinglich — das Wissen fehlt, nicht das Budget.","bullets":["Kein Überblick welche Prozesse automatisierbar wären","KI-Tools als 'zu komplex' oder irrelevant eingestuft","Wettbewerber mit KI-Einsatz gewinnen spürbaren Produktivitätsvorsprung"]},"solution":{"title":"KI-Werkzeugkasten schrittweise mit konkreten Anwendungsfällen aufbauen","detail":"Nicht KI als Konzept einführen — sondern konkrete Werkzeuge für konkrete Probleme. Drei bis fünf Anwendungsfälle mit messbarem Nutzen als Start.","bullets":["Prozesslandkarte: wo entsteht der meiste manuelle Aufwand?","Konkrete Tools testen: Texterstellung, Analyse, Kundenkommunikation, Buchhaltung","Einen Mitarbeitenden als KI-Beauftragten benennen und Wissen intern aufbauen"]},"impact":"Hoch","workload":"Mittel","time":"60–90 Tage"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Fehlende oder falsche Social-Media-Strategie nach Zielgruppe","detail":"KMU betreiben Social Media ohne klare Strategie — falscher Kanal, falscher Ton, falsche Inhalte. B2B-Betriebe posten auf Instagram, B2C-Marken vernachlässigen TikTok. Ohne zielgruppengerechten Ansatz verpufft der Aufwand messbar.","bullets":["B2B vs. B2C erfordern grundlegend andere Plattformen und Formate","Posting-Frequenz und Tonalität passen nicht zur Zielgruppe","Kein messbarer Zusammenhang zwischen Social-Media-Aufwand und Kundenanfragen"]},"solution":{"title":"Plattform- und Inhaltsstrategie konsequent nach B2B oder B2C ausrichten","detail":"B2B: LinkedIn für Autorität — 80 % der B2B-Leads kommen von dort. Sachlicher Ton, Fachcontent, 3–5 hochwertige Posts pro Woche. B2C: Instagram und TikTok für Entdeckung und Kaufimpuls — 43,8 % der TikTok-Nutzer kaufen direkt über die App.","bullets":["B2B: LinkedIn priorisieren, Whitepapers und Case Studies als Lead-Magnet","B2C: Instagram und TikTok für emotionalen Content, Influencer-Kooperationen und direkte CTAs","Rhythmus festlegen: B2B Qualität vor Quantität, B2C höhere Frequenz zulässig"]},"impact":"Gering","workload":"Mittel","time":"30 Tage"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Founder-led Content auf LinkedIn wird unterschätzt","detail":"Firmen-Accounts erzielen auf LinkedIn deutlich weniger Reichweite als persönliche Profile von Gründern und Führungskräften. Das Fachwissen und die Persönlichkeit der Inhabenden bleibt unsichtbar — dabei ist das der wirksamste B2B-Vertrauensaufbau.","bullets":["Unternehmensaccounts erzielen 3x weniger Engagement als persönliche Profile","Fachwissen und Haltung der Gründer bleiben nach außen unsichtbar","Vertrauen im B2B entsteht durch Menschen, nicht durch Logos"]},"solution":{"title":"Führungsperson als sichtbare Fachstimme auf LinkedIn aufbauen","detail":"Founder-led Content erzielt 3x höhere Engagement-Rates als Corporate Pages. Persönliche Posts, echte Meinungen und Einblicke bauen Autorität und Netzwerk nachhaltig auf — jeder Speaker-Auftritt wird zum Content-Hebel für Wochen.","bullets":["Gründer oder Geschäftsführer postet 2–3x pro Woche persönlich auf LinkedIn","Echte Einblicke, Fachthemen und Haltung — kein Produktmarketing","Speaker-Auftritte, Messen und Workshops als Content-Multiplikator einplanen"]},"impact":"Hoch","workload":"Mittel","time":"30–60 Tage"},{"cat":"Vertrieb & Wachstum","problem":{"title":"Offline-Aktivitäten nicht mit Content-Strategie verknüpft","detail":"Messen, Networking-Events, Workshops und Partnertreffen generieren wertvolle Momente — die aber selten zu Content werden. Der Aufwand verpufft ohne digitale Verlängerung, Reichweite und Follow-up.","bullets":["Messepräsenz ohne LinkedIn-Vor- und Nachbereitung","Speaker-Auftritte und Workshops ohne Content-Dokumentation","Netzwerkkontakte werden nach Events nicht digital weitergepflegt"]},"solution":{"title":"Jede Offline-Aktivität mit Content-Plan verknüpfen: Ankündigung → Live → Nachbericht","detail":"Ein Vortrag ergibt Posts, Clips und Fallstudien für Wochen. Jede Aktivität wird zum Content-Asset — wenn sie von Anfang an so geplant wird.","bullets":["Vor dem Event: LinkedIn-Ankündigung, Zielgruppe einladen","Während: Live-Posts, Fotos, Originalzitate als Content","Nach dem Event: Zusammenfassung, Learnings, Follow-up-Sequenz für neue Kontakte"]},"impact":"Mittel","workload":"Mittel","time":"30 Tage"}]/*DE*/;
 
-async function getFileHandle() {
-  try {
-    return await new Promise((res,rej)=>{
-      const r = indexedDB.open('kmuFH',1);
-      r.onupgradeneeded = e => e.target.result.createObjectStore('h');
-      r.onsuccess = e => {
-        const t = e.target.result.transaction('h','readonly');
-        const req = t.objectStore('h').get('fh');
-        req.onsuccess = ()=> res(req.result||null);
-        req.onerror = rej;
-      };
-      r.onerror = rej;
-    });
-  } catch(e) { return null; }
-}
-
-async function storeFileHandle(fh) {
-  try {
-    await new Promise((res,rej)=>{
-      const r = indexedDB.open('kmuFH',1);
-      r.onupgradeneeded = e => e.target.result.createObjectStore('h');
-      r.onsuccess = e => {
-        const t = e.target.result.transaction('h','readwrite');
-        t.objectStore('h').put(fh,'fh');
-        t.oncomplete = res; t.onerror = rej;
-      };
-      r.onerror = rej;
-    });
-  } catch(e) {}
-}
+let _fh = null; // Session-scoped file handle — kein IndexedDB, kein Permissions-Dialog-Spam
 
 async function exportState() {
   try {
-    let fh = await getFileHandle();
-    if (!fh) {
-      [fh] = await window.showOpenFilePicker({
+    if (!_fh) {
+      [_fh] = await window.showOpenFilePicker({
         types:[{description:'HTML',accept:{'text/html':['.html']}}],
-        multiple: false
+        multiple: false,
+        id: 'kmu-save'
       });
-      await storeFileHandle(fh);
     }
-    const perm = await fh.queryPermission({mode:'readwrite'});
-    if (perm !== 'granted') await fh.requestPermission({mode:'readwrite'});
+    let perm = await _fh.queryPermission({mode:'readwrite'});
+    if (perm !== 'granted') perm = await _fh.requestPermission({mode:'readwrite'});
+    if (perm !== 'granted') { _fh = null; alert('Schreibzugriff verweigert.'); return; }
 
-    // Quelldatei direkt lesen statt outerHTML verwenden
-    const file = await fh.getFile();
+    const file = await _fh.getFile();
     const src = await file.text();
     const before = src.split('/*DS*/')[0];
-    const after  = src.split('
+    const after  = src.split('/*DE*/')[1];
+    if (!before || !after) {
+      alert('Falsche Datei — bitte kmu_analyse_v2.html waehlen.');
+      _fh = null; return;
+    }
+    const newSrc = before + '/*DS*/' + JSON.stringify(DATA) + '/*DE*/' + after;
+    const w = await _fh.createWritable();
+    await w.write(newSrc);
+    await w.close();
+    const btn = document.getElementById('saveBtn');
+    btn.textContent = '✓ Gespeichert';
+    setTimeout(() => btn.textContent = '⬇ Stand speichern', 2000);
+  } catch(e) {
+    if (e.name !== 'AbortError') { alert('Fehler: ' + e.message); _fh = null; }
+  }
+}
+
+function valClass(v) { return v==='Hoch'?'v-hi':v==='Mittel'?'v-mi':'v-lo'; }
+
+function pillHtml(label, value, idx, field) {
+  const vc = valClass(value);
+  return `<span class="pill" onclick="cycleLevel(${idx},'${field}')" title="Klick zum Ändern">
+    <span class="pill-lbl">${label}</span>
+    <span class="pill-val ${vc}">${value}</span>
+  </span>`;
+}
+
+function timeHtml(val, idx) {
+  const ed = editMode ? `contenteditable="true" oninput="DATA[${idx}].time=this.textContent;saveAll()"` : '';
+  return `<span class="pill time"><span class="pill-lbl">Zeit</span>&nbsp;<span ${ed}>${val}</span></span>`;
+}
+
+function saveAll() {
+  try { localStorage.setItem('kmu_data', JSON.stringify({DATA, CATS})); } catch(e) {}
+}
+
+function loadAll() {
+  try {
+    const saved = localStorage.getItem('kmu_data');
+    if (!saved) return;
+    const s = JSON.parse(saved);
+    const valid = s.DATA && Array.isArray(s.DATA) && s.DATA.length > 0
+      && s.DATA[0] && s.DATA[0].cat && s.DATA[0].problem && s.DATA[0].solution;
+    if (valid) {
+      DATA.length=0; s.DATA.forEach(d=>DATA.push(d));
+    } else {
+      localStorage.removeItem('kmu_data');
+    }
+    if (s.CATS && typeof s.CATS==='object' && Object.keys(s.CATS).length > 0) {
+      Object.keys(CATS).forEach(k=>delete CATS[k]); Object.assign(CATS, s.CATS);
+    }
+  } catch(e) { localStorage.removeItem('kmu_data'); }
+}
+
+function cycleLevel(idx, field) {
+  const cur = DATA[idx][field];
+  const next = LEVELS[(LEVELS.indexOf(cur)+1)%3];
+  DATA[idx][field] = next;
+  saveAll();
+  if(field==='impact')   document.getElementById('fImpact').value='';
+  if(field==='workload') document.getElementById('fWork').value='';
+  render();
+}
+
+function getFiltered() {
+  const fCat = document.getElementById('fCat').value;
+  const fImpact = document.getElementById('fImpact').value;
+  const fWork = document.getElementById('fWork').value;
+  return DATA.map((d,i)=>({...d,idx:i})).filter(d=>{
+    if(fCat && d.cat!==fCat) return false;
+    if(fImpact && d.impact!==fImpact) return false;
+    if(fWork && d.workload!==fWork) return false;
+    return true;
+  });
+}
+
+function render() {
+  updateCatFilter();
+  renderTable();
+  if(currentView==='matrix') renderMatrix();
+}
+
+function updateCatFilter() {
+  const sel = document.getElementById('fCat');
+  const cur = sel.value;
+  const cats = Object.keys(CATS);
+  sel.innerHTML = '<option value="">Alle Kategorien</option>' +
+    cats.map(c=>`<option${c===cur?' selected':''}>${c}</option>`).join('');
+}
+
+function renderTable() {
+  const filtered = getFiltered();
+  const tv = document.getElementById('tableView');
+  if(!filtered.length){ tv.innerHTML='<div class="empty">Keine Treffer.</div>'; return; }
+  const grouped = {};
+  filtered.forEach(d=>{ if(!grouped[d.cat]) grouped[d.cat]=[]; grouped[d.cat].push(d); });
+  tv.innerHTML = Object.entries(grouped).map(([cat,items])=>`
+    <div class="cat-group">
+      <div class="cat-head" onclick="toggleCat(this)">
+        <span class="cat-icon">${CATS[cat]||'📌'}</span>
+        <span class="cat-name">${cat}</span>
+        <span class="cat-count">${items.length} ${items.length===1?'Themenfeld':'Themenfelder'}</span>
+        <span class="cat-arr">▾</span>
+      </div>
+      <div class="cat-body">
+        ${items.map(item=>tfHtml(item)).join('')}
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('tableView').classList.toggle('em', editMode);
+}
+
+function tfHtml(item) {
+  const i = item.idx;
+  const ed = editMode ? 'contenteditable="true"' : '';
+  const stopProp = editMode ? 'onclick="event.stopPropagation()"' : '';
+  return `
+  <div class="tf${editMode?' em':''}">
+    <div class="tf-split">
+      <div class="tf-half prob" onclick="openPanel(${i},'problem')">
+        <div><span class="tf-type">⚠ Problembeschreibung</span><span class="tf-hint">ⓘ</span></div>
+        <div class="tf-title" ${ed} ${stopProp} oninput="DATA[${i}].problem.title=this.textContent;saveAll()">${item.problem.title}</div>
+        <div class="tf-desc"  ${ed} ${stopProp} oninput="DATA[${i}].problem.detail=this.textContent;saveAll()">${item.problem.detail}</div>
+      </div>
+      <div class="tf-half sol" onclick="openPanel(${i},'solution')">
+        <div><span class="tf-type">✓ Lösungsansätze</span><span class="tf-hint">ⓘ</span></div>
+        <div class="tf-title" ${ed} ${stopProp} oninput="DATA[${i}].solution.title=this.textContent;saveAll()">${item.solution.title}</div>
+        <div class="tf-desc"  ${ed} ${stopProp} oninput="DATA[${i}].solution.detail=this.textContent;saveAll()">${item.solution.detail}</div>
+      </div>
+    </div>
+    <div class="tf-meta">
+      ${pillHtml('Impact', item.impact, i, 'impact')}
+      ${pillHtml('Aufwand', item.workload, i, 'workload')}
+      ${timeHtml(item.time, i)}
+    </div>
+    ${editMode?`<div class="tf-bar"><button class="delbtn" onclick="delTF(${i})">🗑 Themenfeld löschen</button></div>`:''}
+  </div>`;
+}
+
+function toggleCat(header) {
+  const body = header.nextElementSibling;
+  const arr = header.querySelector('.cat-arr');
+  body.classList.toggle('closed');
+  arr.classList.toggle('closed');
+}
+
+function openPanel(idx, side) {
+  const item = DATA[idx];
+  document.getElementById('panelTitle').textContent = side==='problem' ? item.problem.title : item.solution.title;
+  const body = document.getElementById('panelBody');
+  const metaHtml = `
+    <div class="ps-tags">
+      <span class="pill time"><span class="pill-lbl">Impact</span>&nbsp;<span class="pill-val ${valClass(item.impact)}">${item.impact}</span></span>
+      <span class="pill time"><span class="pill-lbl">Arbeitsaufwand</span>&nbsp;<span class="pill-val ${valClass(item.workload)}">${item.workload}</span></span>
+      <span class="pill time"><span class="pill-lbl">Zeit</span>&nbsp;${item.time}</span>
+    </div>`;
+  if(side==='problem') {
+    body.innerHTML = `
+      <div class="ps ps-prob">
+        <div class="ps-label">⚠ Problembeschreibung</div>
+        <p class="ps-p">${item.problem.detail}</p>
+        <ul class="ps-ul">${item.problem.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+      </div>
+      <div>${metaHtml}</div>
+      <hr class="sep">
+      <div class="ps ps-sol">
+        <div class="ps-label">✓ Lösungsansätze</div>
+        <p class="ps-p" style="font-weight:500;margin-bottom:5px">${item.solution.title}</p>
+        <p class="ps-p">${item.solution.detail}</p>
+        <ul class="ps-ul">${item.solution.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+      </div>`;
+  } else {
+    body.innerHTML = `
+      <div class="ps ps-sol">
+        <div class="ps-label">✓ Lösungsansätze</div>
+        <p class="ps-p">${item.solution.detail}</p>
+        <ul class="ps-ul">${item.solution.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+      </div>
+      <div>${metaHtml}</div>
+      <hr class="sep">
+      <div class="ps ps-prob">
+        <div class="ps-label">⚠ Problembeschreibung</div>
+        <p class="ps-p" style="font-weight:500;margin-bottom:5px">${item.problem.title}</p>
+        <p class="ps-p">${item.problem.detail}</p>
+      </div>`;
+  }
+  document.getElementById('panel').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+}
+
+function closePanel() {
+  document.getElementById('panel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+
+function toggleEdit() {
+  editMode = !editMode;
+  const btn = document.getElementById('editBtn');
+  btn.classList.toggle('on', editMode);
+  btn.textContent = editMode ? '✓ Fertig' : '✎ Bearbeiten';
+  document.getElementById('editHint').classList.toggle('show', editMode);
+  render();
+}
+
+function delTF(idx) {
+  if(confirm('Themenfeld wirklich löschen?')) { DATA.splice(idx,1); saveAll(); render(); }
+}
+
+function addThemenfeld() {
+  const cats = Object.keys(CATS);
+  const cat = prompt('Kategorie wählen:\n'+cats.map((c,i)=>`${i+1}. ${c}`).join('\n')+'\n\nNummer eingeben:');
+  if(!cat) return;
+  const catName = cats[parseInt(cat)-1] || cats[0];
+  DATA.push({
+    cat: catName,
+    problem:  { title:'Neues Problem',  detail:'Beschreibung eintragen.', bullets:['Punkt 1'] },
+    solution: { title:'Neue Lösung', detail:'Beschreibung eintragen.', bullets:['Schritt 1'] },
+    impact:'Mittel', workload:'Mittel', time:'offen'
+  });
+  saveAll();
+  if(!editMode) toggleEdit(); else render();
+}
+
+function addKategorie() {
+  const name = prompt('Name der neuen Kategorie:');
+  if(!name || !name.trim()) return;
+  const n = name.trim();
+  if(CATS[n]) { alert('Kategorie existiert bereits.'); return; }
+  CATS[n] = '📌';
+  DATA.push({
+    cat: n,
+    problem:  { title:'Neues Problem',  detail:'Beschreibung eintragen.', bullets:['Punkt 1'] },
+    solution: { title:'Neue Lösung', detail:'Beschreibung eintragen.', bullets:['Schritt 1'] },
+    impact:'Mittel', workload:'Mittel', time:'offen'
+  });
+  saveAll();
+  if(!editMode) toggleEdit(); else render();
+}
+
+function setView(v) {
+  currentView = v;
+  document.getElementById('tableView').classList.toggle('hidden', v!=='table');
+  document.getElementById('matrixView').classList.toggle('active', v==='matrix');
+  document.getElementById('vBtnTable').classList.toggle('on', v==='table');
+  document.getElementById('vBtnMatrix').classList.toggle('on', v==='matrix');
+  if(v==='matrix') renderMatrix(); else renderTable();
+}
+
+function renderMatrix() {
+  const filtered = getFiltered();
+  if (!filtered.length) {
+    document.getElementById('matrixView').innerHTML = '<div class="empty">Keine Treffer.</div>';
+    return;
+  }
+  const W=640, H=600;
+  const px0=72, py0=55;
+  const cw=276, ch=248;
+  const px1=px0+2*cw, py1=py0+2*ch;
+  const cols=[px0,px0+cw,px1];
+  const rows=[py0,py0+ch,py1];
+  const wlCol={Gering:0,Mittel:0,Hoch:1};
+  const impRow={Hoch:0,Mittel:1,Gering:1};
+  const impR={Hoch:17,Mittel:12,Gering:8};
+  const qFill=[['#ef4444','#16a34a'],['#f97316','#3b82f6']];
+
+  function subXFrac(col,wl){ return col===0?(wl==='Gering'?0.22:0.70):0.5; }
+  function subYFrac(row,imp){ return row===0?0.5:(imp==='Mittel'?0.30:0.72); }
+
+  const subzones={};
+  filtered.forEach((d,ni)=>{
+    const c=wlCol[d.workload]??0;
+    const r=impRow[d.impact]??1;
+    const key=`${c},${r},${d.workload},${d.impact}`;
+    if(!subzones[key]) subzones[key]={c,r,wl:d.workload,imp:d.impact,items:[]};
+    subzones[key].items.push({d,num:ni+1});
+  });
+
+  const circleData=[];
+  Object.values(subzones).forEach(zone=>{
+    const {c,r,wl,imp,items}=zone;
+    const bx=cols[c]+subXFrac(c,wl)*cw;
+    const by=rows[r]+subYFrac(r,imp)*ch;
+    const rad=impR[imp];
+    const color=qFill[r][c];
+    const spacing=rad*2+4;
+    const zoneW=c===0?cw*0.44:cw*0.9;
+    const perRow=Math.max(1,Math.floor(zoneW/spacing));
+    const n=items.length;
+    const totalRows=Math.ceil(n/perRow);
+    items.forEach(({d,num},k)=>{
+      const ro=Math.floor(k/perRow);
+      const co=k%perRow;
+      const rowCount=Math.min(perRow,n-ro*perRow);
+      const cx=bx+(co-(rowCount-1)/2)*spacing;
+      const cy=by+(ro-(totalRows-1)/2)*spacing;
+      const clampX=Math.max(cols[c]+rad+4,Math.min(cols[c+1]-rad-4,cx));
+      const clampY=Math.max(rows[r]+rad+44,Math.min(rows[r+1]-rad-4,cy));
+      circleData.push({d,num,cx:clampX,cy:clampY,rad,color,idx:d.idx});
+    });
+  });
+  circleData.sort((a,b)=>a.num-b.num);
+
+  const circlesSvg=circleData.map(({num,cx,cy,rad,color,idx})=>`
+    <g style="cursor:pointer" onclick="openPanel(${idx},'problem')">
+      <circle cx="${cx}" cy="${cy}" r="${rad}" fill="${color}" opacity="0.88"/>
+      <text x="${cx}" y="${cy}" dy="0.35em" font-size="${rad>=15?11:rad>=10?9:7}" font-weight="700" fill="white" text-anchor="middle" font-family="-apple-system,sans-serif">${num}</text>
+    </g>`).join('');
+
+  const qdX=cols[1], qdY=rows[1];
+  function qLabel(x,y,label,tc){
+    const pw=label.length*6.4+16;
+    return `<rect x="${x}" y="${y}" width="${pw}" height="18" rx="9" fill="${tc}" fill-opacity="0.10"/>
+    <text x="${x+pw/2}" y="${y+13}" font-size="10" font-weight="600" fill="${tc}" text-anchor="middle" font-family="-apple-system,sans-serif">${label}</text>`;
+  }
+  const qlabels=`
+    ${qLabel(px0+8,py0+8,'Sofort angehen','#ef4444')}
+    ${qLabel(qdX+8,py0+8,'Strategisch planen','#16a34a')}
+    ${qLabel(px0+8,qdY+8,'Nebenbei erledigen','#f97316')}
+    ${qLabel(qdX+8,qdY+8,'Hinterfragen','#3b82f6')}`;
+  const qbg=`
+    <rect x="${cols[0]}" y="${rows[0]}" width="${cw}" height="${ch}" fill="#fef5f5"/>
+    <rect x="${cols[1]}" y="${rows[0]}" width="${cw}" height="${ch}" fill="#f5fef8"/>
+    <rect x="${cols[0]}" y="${rows[1]}" width="${cw}" height="${ch}" fill="#fef8f5"/>
+    <rect x="${cols[1]}" y="${rows[1]}" width="${cw}" height="${ch}" fill="#f5f9fe"/>`;
+  const qdivs=`
+    <line x1="${qdX}" y1="${py0}" x2="${qdX}" y2="${py1}" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+    <line x1="${px0}" y1="${qdY}" x2="${px1}" y2="${qdY}" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>`;
+  const gridW=px1-px0, gridH=py1-py0;
+  const border=`<rect x="${px0}" y="${py0}" width="${gridW}" height="${gridH}" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>`;
+  const axisLbls=`
+    <text x="${(cols[0]+cols[1])/2}" y="${py1+16}" font-size="10" fill="#c7c7cc" text-anchor="middle" font-family="-apple-system,sans-serif">Gering / Mittel</text>
+    <text x="${(cols[1]+cols[2])/2}" y="${py1+16}" font-size="10" fill="#c7c7cc" text-anchor="middle" font-family="-apple-system,sans-serif">Hoch</text>
+    <text x="${(px1+px0)/2}" y="${py1+30}" font-size="10" fill="#86868b" text-anchor="middle" font-family="-apple-system,sans-serif">Arbeitsaufwand →</text>
+    <text transform="rotate(-90,22,${(rows[0]+rows[1])/2})" x="22" y="${(rows[0]+rows[1])/2+4}" font-size="10" fill="#c7c7cc" text-anchor="middle" font-family="-apple-system,sans-serif">Hoch</text>
+    <text transform="rotate(-90,22,${(rows[1]+rows[2])/2})" x="22" y="${(rows[1]+rows[2])/2+4}" font-size="10" fill="#c7c7cc" text-anchor="middle" font-family="-apple-system,sans-serif">Mittel / Gering</text>
+    <text transform="rotate(-90,8,${py0+gridH/2})" x="8" y="${py0+gridH/2+4}" font-size="10" fill="#86868b" text-anchor="middle" font-family="-apple-system,sans-serif">Impact ↑</text>`;
+
+  const legendHtml=circleData.map(({d,num,color,idx})=>{
+    const ic=d.impact==='Hoch'?'#c62828':d.impact==='Mittel'?'#bf6000':'#1b5e20';
+    const wc=d.workload==='Hoch'?'#c62828':d.workload==='Mittel'?'#bf6000':'#1b5e20';
+    return `<div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:0.5px solid #f5f5f7;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;min-width:20px;border-radius:50%;background:${color};color:white;font-size:9px;font-weight:700;flex-shrink:0;cursor:pointer" onclick="openPanel(${idx},'problem')">${num}</span>
+      <span style="font-size:11px;color:#1d1d1f;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer" onclick="openPanel(${idx},'problem')">${d.problem.title}</span>
+      <div style="display:flex;gap:4px;margin-left:auto;flex-shrink:0;">
+        <span style="display:inline-flex;align-items:center;gap:2px;background:white;border:0.5px solid rgba(0,0,0,0.1);border-radius:20px;padding:2px 7px;font-size:10px;cursor:pointer;touch-action:manipulation" onclick="cycleLevel(${idx},'impact');if(currentView==='matrix')renderMatrix()"><span style="color:#86868b">Impact</span>&nbsp;<span style="font-weight:600;color:${ic}">${d.impact}</span></span>
+        <span style="display:inline-flex;align-items:center;gap:2px;background:white;border:0.5px solid rgba(0,0,0,0.1);border-radius:20px;padding:2px 7px;font-size:10px;cursor:pointer;touch-action:manipulation" onclick="cycleLevel(${idx},'workload');if(currentView==='matrix')renderMatrix()"><span style="color:#86868b">Aufwand</span>&nbsp;<span style="font-weight:600;color:${wc}">${d.workload}</span></span>
+      </div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('matrixView').innerHTML=`
+    <div style="background:white;border:0.5px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden">
+      <svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="display:block">
+        <rect width="${W}" height="${H}" fill="white"/>
+        <text x="${W/2}" y="${py0/2+6}" font-size="17" font-weight="600" fill="#1d1d1f" text-anchor="middle" letter-spacing="-0.4" font-family="-apple-system,sans-serif">Entscheidungsmatrix</text>
+        ${qbg}${qdivs}${border}${qlabels}${circlesSvg}${axisLbls}
+      </svg>
+    </div>
+    <div style="margin-top:12px;background:white;border:0.5px solid rgba(0,0,0,0.08);border-radius:16px;padding:12px 16px;">
+      ${legendHtml}
+    </div>`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadAll();
+  updateCatFilter();
+  setView('table');
+});
+</script>
+</body>
+</html>
